@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>herb_launch</name>
+  <version>0.0.0</version>
+  <description>
+    Launch files for HERB, a bimanual mobile manipulator built by the Personal
+    Robotics Lab at Carnegie Mellon University.
+  </description>
+  <maintainer email="mkoval@cs.cmu.edu">Michael Koval</maintainer>
+  <author email="mkoval@cs.cmu.edu">Michael Koval</author>
+  <license>BSD</license>
+  <url type="website">https://personalrobotics.ri.cmu.edu</url>
+  <url type="bugtracker">https://github.com/personalrobotics/herb_launch/issues</url>
+  <url type="repository">https://github.com/personalrobotics/herb_launch.git</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>owd</depend>
+</package>
