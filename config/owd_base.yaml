@@ -1,0 +1,14 @@
+owd:
+  auto_start: false
+  tactile_top10: false
+  max_cartesian_velocity: 1.2 # m/s
+  tactile_publish_frequency: 40 # Hz
+  hand_publish_frequency: 40 # Hz
+  ft_publish_frequency: 100 # Hz
+  wam_publish_frequency: 100 # Hz
+  log_canbus_data: false
+  log_controller_data: false
+  slip_joints_on_high_torque: false
+  synchronize_with_other_controllers: true
+  synchronization_controller_count: 3
+  synchronization_timeout: 10 # s 

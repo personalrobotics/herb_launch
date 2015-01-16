@@ -13,5 +13,6 @@
   <url type="bugtracker">https://github.com/personalrobotics/herb_launch/issues</url>
   <url type="repository">https://github.com/personalrobotics/herb_launch.git</url>
   <buildtool_depend>catkin</buildtool_depend>
-  <depend>owd</depend>
+  <exec_depend>owd</exec_depend>
+  <exec_depend>owd_plugins</exec_depend>
 </package>
