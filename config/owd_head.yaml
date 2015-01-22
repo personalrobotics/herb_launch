@@ -1,4 +1,5 @@
 owd:
+  cpus_to_run_on: 2,3
   canbus_number: 2
   synchronization_id: 2
 tf_prefix: head
