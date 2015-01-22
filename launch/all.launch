@@ -1,0 +1,4 @@
+<launch>
+  <include file="head.launch"/>
+  <include file="right_arm.launch"/>
+</launch>
