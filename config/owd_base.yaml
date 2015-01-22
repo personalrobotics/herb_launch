@@ -9,6 +9,8 @@ owd:
   log_canbus_data: false
   log_controller_data: false
   slip_joints_on_high_torque: false
-  synchronize_with_other_controllers: true
+  # Synchronization is temporarily disabled because the left WAM is not
+  # installed.
+  synchronize_with_other_controllers: false
   synchronization_controller_count: 3
   synchronization_timeout: 10 # s 

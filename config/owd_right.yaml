@@ -10,8 +10,5 @@ owd:
   # detect that no wrist is installed. This is potentially dangerous because
   # the inverse dynamics solution will be wildly incorrect.
   hand_type: '280'
-  # Temporarily disable s ynchronization because the left WAM is not installed
-  # and the pantilt unit has not been ported to Catkin.
-  synchronize_with_other_controllers: false
   synchronization_id: 0
 tf_prefix: right

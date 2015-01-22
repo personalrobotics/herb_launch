@@ -1,0 +1,11 @@
+<launch>
+  <group ns="head">
+    <rosparam command="load" file="$(find herb_launch)/config/owd_base.yaml"/>
+    <rosparam command="load" file="$(find herb_launch)/config/owd_head.yaml"/>
+
+    <node pkg="pantilt" type="owd" name="owd" output="screen" respawn="false">
+      <!-- TODO: Load hybrid_plugin and owd_ortraj. -->
+      <param name="owd_plugins" type="string" value=""/>
+    </node>
+  </group>
+</launch>
