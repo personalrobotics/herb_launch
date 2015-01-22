@@ -2,4 +2,14 @@ owd:
   cpus_to_run_on: 2,3
   canbus_number: 2
   synchronization_id: 2
+  # This is a modified version of the full version of OWD, so we need to
+  # disable all but the first two joints.
+  motor1_transmission_ratio: 4.5
+  motor2_transmission_ratio: 36.0
+  motor3_transmission_ratio: 0.0
+  motor4_transmission_ratio: 0.0
+  motor6_transmission_ratio: 0.0
+  motor7_transmission_ratio: 0.0
+  differential3_ratio: 0.0
+  differential6_ratio: 0.0
 tf_prefix: head
