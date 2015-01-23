@@ -1,0 +1,2 @@
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", GROUP="pr", MODE="0664", SYMLINK+="stargazer"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="e729", GROUP="pr", MODE="0664", SYMLINK+="segway"
