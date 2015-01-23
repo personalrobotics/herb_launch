@@ -11,4 +11,11 @@ owd:
   # the inverse dynamics solution will be wildly incorrect.
   hand_type: '280'
   synchronization_id: 0
+  motor1_transmission_ratio: 42.279465399975486
+  motor2_transmission_ratio: 28.57420843798113
+  motor3_transmission_ratio: 28.47704175190698
+  motor4_transmission_ratio: 18.5773462763004
+  motor5_transmission_ratio: 8.652577050573187
+  motor6_transmission_ratio: 9.680541457118569
+  motor7_transmission_ratio: 14.928346369504156
 tf_prefix: right
