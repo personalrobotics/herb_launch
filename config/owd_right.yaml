@@ -15,7 +15,7 @@ owd:
   motor2_transmission_ratio: 28.525624
   motor3_transmission_ratio: 28.525624
   motor4_transmission_ratio: 18.5773462763004
-  motor5_transmission_ratio: 8.8218
-  motor6_transmission_ratio: 8.8218
+  motor5_transmission_ratio: 8.667626425
+  motor6_transmission_ratio: 8.667626425
   motor7_transmission_ratio: 14.928346369504156
 tf_prefix: right
