@@ -12,4 +12,5 @@ owd:
   motor7_transmission_ratio: 0.0
   differential3_ratio: 0.0
   differential6_ratio: 0.0
-tf_prefix: head
+  tf_prefix: head
+  gravity_vector: '0,0,-1'

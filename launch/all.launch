@@ -1,4 +1,5 @@
 <launch>
   <include file="head.launch"/>
   <include file="right_arm.launch"/>
+  <include file="transforms.launch"/>
 </launch>
