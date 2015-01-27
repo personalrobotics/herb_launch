@@ -1,0 +1,136 @@
+<launch>
+  <!-- fixed transformations -->
+  
+  <!-- Change from original CAD calculations: tilt the mast by .03 radians
+       and shift the camera up by 0.04 meters.  Mike V. 10/12/2009  -->
+
+  <!--    Static transformation from segway to left wam -->
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="-.267 .331 0.685 3.1416 -1.570796 0 herb_base left/wam_base 1000"
+	name="tf_left_wam_base" respawn="true"> 
+  </node>
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="0.22 0.14 .346 0 0 0 left/wam_base left/wam0 1000"
+	name="tf_left_wam0" respawn="true"> 
+  </node>
+
+
+  <!--    Static transformation from segway to right wam -->
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="-.267 -.051 0.685 3.1416 -1.570796 0 herb_base right/wam_base 1000"
+	name="tf_right_wam_base" respawn="true"> 
+  </node>
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="0.22 0.14 .346 0 0 0 right/wam_base right/wam0 1000"
+	name="tf_right_wam0" respawn="true"> 
+  </node>
+
+  <!--   herb_base to head/wam0 is always fixed, calculated from the CAD models -->
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="-0.21908  0.0  1.27298  0 0 0 herb_base head/wam0 1000"
+	name="tf_mast" respawn="true">
+  </node>
+
+
+<!--============================================================================-->
+<!--============================CAMERA SECTION==================================-->
+<!--============================================================================-->
+
+<!-- The three nodes below are temporary stubs until correct kinect2 extrinsics
+can be done -->
+<!-- From aaron's method sometime in Sept 2014 -->
+<!--<node   pkg="tf"
+        type="static_transform_publisher"
+        machine="robot_fixed_transforms"
+        args=  "0.15837 0.03257 0.09936
+                0.71343 -0.02225 0.69990 0.02582
+                /head/wam2
+                /head/kinect2/colorFrame
+                1000"
+        name="tf_kinect2_rgb"
+        respawn="true"/>
+-->
+
+<!-- Intrinsics from tsai method on Oct 30 2014 -->
+
+<node   pkg="tf"
+        type="static_transform_publisher"
+        machine="robot_fixed_transforms"
+        args=  "0.15837 0.03257 0.09936
+                0.71343 -0.02225 0.69990 0.02582
+                /head/wam2
+                /head/kinect2/colorFrame
+                10"
+        name="tf_kinect2_rgb"
+        respawn="true"/>
+                     
+<node pkg="tf" type="static_transform_publisher" machine="robot_fixed_transforms" args="-0.052 0.01 0 0 0 0 1 /head/kinect2/colorFrame /head/kinect2/irFrame 10" name="tf_kinect2_ir_link" respawn="true"/>
+
+<node pkg="tf" type="static_transform_publisher" machine="robot_fixed_transforms" args="-0.01 -0.03 0 0 0 0 1 /head/kinect2/colorFrame /head/kinect2/depthFrame 10" name="tf_kinect2_depth" respawn="true"/>
+
+  <!-- ============ Static Transforms For Base Hokuyos ======================================= -->
+
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="-0.28613688816430005 0.25414007607683997 0.0811784 2.0320379447076999 0 3.1416 /herb_base /base_hokuyo_left 1000"
+	name="tf_hokuyo_left" respawn="false"> 
+  </node>
+
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="-0.32942801046380998 -0.31715770603423998 0.0811784 -2.10565775700533 0 3.1416 /herb_base /base_hokuyo_right 1000"
+	name="tf_hokuyo_right" respawn="false"> 
+  </node>
+
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="0.219 0 0.072 0 0 3.1416 /herb_base /base_hokuyo_front 1000"
+	name="tf_hokuyo_front" respawn="false"> 
+  </node>
+
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="0 0 0 0 0 0 map segway_odom_origin 1000"
+        name="tf_segway_odom_origin" respawn="true">
+  </node>
+
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="0 0 0 0 0 0 segway_odom odom 1000"
+        name="tf_segway_base_odom" respawn="true">
+  </node>
+
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="0 0 0 0 0 0 herb_base base_link 1000"
+        name="tf_segway_base_link" respawn="true">
+  </node>
+
+  <!-- Transformation: Segway to center of star gazer device. -->
+  <!-- args="-0.3224 0.2268 1.0258 0 0 0  herb_base stargazer_lens 1000" -->
+  <node pkg="tf" type="static_transform_publisher" 
+    machine="robot_fixed_transforms" 
+    args="-0.3024 0.2068 1.0258 0 0 0  herb_base stargazer_lens 1000"
+    name="tf_stargazer_lens"
+    respawn="true">
+  </node>
+
+  <!-- Transformation: Segway base to caster on Segway -->
+  <node pkg="tf" type="static_transform_publisher" 
+    machine="robot_fixed_transforms" 
+    args="-0.3175 0 0 0 0 0  herb_base caster_contact 1000"
+    name="tf_caster_contact"
+    respawn="true">
+  </node>
+
+  <!--Transformation: map origin to stargazer reference. Note: z is fixed to 0 so that herb_base appears at floor level -->
+  <node pkg="tf" type="static_transform_publisher" 
+	machine="robot_fixed_transforms" 
+	args="0 0 0 0  0 0 map stargazer_reference_marker 1000"
+	name="tf_stargazer_reference_marker"
+	respawn="true">
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" 
+	machine="robot_fixed_transforms" 
+    args="-0.15 2.60 2.815 0 0.035 -1.571 map skycam/base 1000"
+	name="tf_skycam_base"
+	respawn="true">
+  </node>
+
+</launch>
+
