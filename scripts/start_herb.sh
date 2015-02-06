@@ -22,6 +22,7 @@ pr_launcher "transforms" "transforms.launch"
 pr_launcher "right_arm"  "right_arm.launch"
 pr_launcher "head"       "head.launch"
 pr_launcher "apriltags"  "apriltags.launch"
+pr_launcher "joystick"   "joystick.launch"
 
  
     
