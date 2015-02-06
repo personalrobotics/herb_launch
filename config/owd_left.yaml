@@ -1,7 +1,7 @@
 bhd:
   # "high strain gauge" limit
   hsg_value: 10000
-  tf_prefix: right
+  tf_prefix: left
 owd:
   cpus_to_run_on: 4,5
   canbus_number: 0
