@@ -6,7 +6,6 @@
     <node pkg="pantilt" type="owd" name="owd" output="screen" respawn="false">
       <!-- TODO: Load hybrid_plugin and owd_ortraj. -->
       <param name="owd_plugins" type="string" value=""/>
-      <param name="tf_prefix" type="string" value="head" />
     </node>
   </group>
 </launch>

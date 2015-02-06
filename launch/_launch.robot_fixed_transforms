@@ -30,6 +30,10 @@
         args="-0.21908  0.0  1.27298  0 0 0 herb_base head/wam0 1000"
 	name="tf_mast" respawn="true">
   </node>
+  <node machine="robot_fixed_transforms" pkg="tf" type="static_transform_publisher"
+        args="-0.21908  0.0  1.27298  0 0 0 herb_base head_target/wam0 1000"
+	name="tf_mast_target" respawn="true">
+  </node>
 
 
 <!--============================================================================-->
@@ -53,10 +57,21 @@ can be done -->
 
 <!-- Intrinsics from tsai method on Oct 30 2014 -->
 
-<node   pkg="tf"
+<!--node   pkg="tf"
         type="static_transform_publisher"
         machine="robot_fixed_transforms"
         args=  "0.15837 0.03257 0.09936
+                0.71343 -0.02225 0.69990 0.02582
+                /head/wam2
+                /head/kinect2/colorFrame
+                10"
+        name="tf_kinect2_rgb"
+        respawn="true"/-->
+
+<node   pkg="tf"
+        type="static_transform_publisher"
+        machine="robot_fixed_transforms"
+        args=  "0.11838 0.10257 0.10936
                 0.71343 -0.02225 0.69990 0.02582
                 /head/wam2
                 /head/kinect2/colorFrame
