@@ -1,0 +1,23 @@
+bhd:
+  # "high strain gauge" limit
+  hsg_value: 10000
+  tf_prefix: right
+owd:
+  cpus_to_run_on: 4,5
+  canbus_number: 0
+  modified_j1: true
+  # TODO: The force/torque sensor is currently not installed.
+  forcetorque_sensor: false
+  # NOTE: hand_type must be a string, not an integer. Otherwise, OWD will
+  # detect that no wrist is installed. This is potentially dangerous because
+  # the inverse dynamics solution will be wildly incorrect.
+  hand_type: '280'
+  synchronization_id: 1
+  motor1_transmission_ratio: 42.275882590116225
+  motor2_transmission_ratio: 28.29375111191279
+  motor3_transmission_ratio: 28.346268192365695
+  motor4_transmission_ratio: 18.419394456267334
+  motor5_transmission_ratio: 9.996531673714642
+  motor6_transmission_ratio: 9.477353552911287
+  motor7_transmission_ratio: 14.976568786213825
+  tf_prefix: left
