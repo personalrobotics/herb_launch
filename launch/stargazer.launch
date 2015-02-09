@@ -1,0 +1,5 @@
+<launch>
+  <node pkg="stargazer" type="stargazer_publisher.py" name="stargazer">
+    <rosparam command="load" file="$(find herb_launch)/config/stargazer.yaml"/>
+  </node>
+</launch>
