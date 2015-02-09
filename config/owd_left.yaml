@@ -6,8 +6,7 @@ owd:
   cpus_to_run_on: 4,5
   canbus_number: 0
   modified_j1: true
-  # TODO: The force/torque sensor is currently not installed.
-  forcetorque_sensor: false
+  forcetorque_sensor: true
   # NOTE: hand_type must be a string, not an integer. Otherwise, OWD will
   # detect that no wrist is installed. This is potentially dangerous because
   # the inverse dynamics solution will be wildly incorrect.
