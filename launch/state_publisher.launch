@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="robot_state_publisher" type="robot_state_publisher"
+        name="state_publisher" >
+        <remap from="robot_description" to="/robot_description" />
+        <remap from="joint_states" to="/joint_states" />
+    </node>
+</launch>
