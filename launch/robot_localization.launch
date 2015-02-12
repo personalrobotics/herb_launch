@@ -1,5 +1,6 @@
 <launch>
-    <node pkg="robot_localization" type="ukf_localization_node" name="ukf_localization" clear_params="true">
+    <node pkg="robot_localization" type="ukf_localization_node"
+          name="ukf_localization" clear_params="true">
         <param name="two_d_mode" value="true"/>
         <!--<param name="debug" value="true"/>-->
 
@@ -22,7 +23,8 @@
         </rosparam>
      </node>
 
-    <node pkg="stargazer" node="stargazer_publisher.py" name="stargazer">
+    <node pkg="stargazer" type="stargazer_publisher.py" name="stargazer"
+          clear_params="true">
         <rosparam command="load" file="$(find herb_launch)/config/stargazer.yaml"/>
     </node>
 </launch>
