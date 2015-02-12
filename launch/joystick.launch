@@ -4,7 +4,9 @@
     <node machine="joystick"  pkg="joy" type="joy_node" name="joy" respawn="true"/>
 
     <!--prjoy links joystick to motor controller and planner -->
-    <node machine="joystick" pkg="pr_joy" type="prjoy" name="prjoy" respawn="true"/>
+    <node machine="joystick" pkg="pr_joy" type="prjoy" name="prjoy" respawn="true">
+        <remap from="/cmd_vel" to="/segway_rmp_node/cmd_vel" />
+    </node>
     <node machine="joystick" pkg="pr_joy" type="joy.py" name="joy_toggle" respawn="true"/>
 
 </launch>
