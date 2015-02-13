@@ -1,4 +1,6 @@
 <launch>
+    <param name="robot_description" textfile="$(find herb_description)/robots/herb.urdf"/>
+
     <node pkg="robot_state_publisher" type="robot_state_publisher"
         name="state_publisher" >
         <remap from="robot_description" to="/robot_description" />
