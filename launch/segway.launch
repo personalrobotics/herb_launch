@@ -1,7 +1,8 @@
 <launch>
-    <node name="segway_rmp_node" pkg="segway_rmp" type="segway_rmp_node" output="screen" required="true" >
-        <param name="interface_type" type="str" value="serial" />
-        <param name="serial_port" type="str" value="/dev/ttyUSB1" />
-        <param name="rmp_type" type="str" value="200/400" />        
+    <node pkg="segway_rmp" type="segway_rmp_node" name="segway"
+          output="screen" required="true" clear_params="true">
+        <remap from="segway/cmd_vel" to="cmd_vel"/>
+        <remap from="segway/odom" to="odom"/>
+        <rosparam command="load" file="$(find herb_launch)/config/segway.yaml"/>
     </node>
 </launch>

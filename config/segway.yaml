@@ -1,0 +1,5 @@
+interface_type: serial
+serial_port: /dev/segway
+rmp_type: 200/400
+broadcast_tf: true
+frame_id: herb_base
