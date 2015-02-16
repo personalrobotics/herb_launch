@@ -6,12 +6,14 @@
     <node pkg="nodelet" type="nodelet" name="registrar"
         args="load depth_image_proc/register standalone_nodelet">
         <remap from="rgb/camera_info" to="/head/kinect2/rgb/camera_info"/>
-        <remap from="depth/image_rect" to="/head/kinect2/depth/image_raw"/>
+        <remap from="depth/image_rect" to="/head/kinect2/depth/image_depth"/>
         <remap from="depth/camera_info" to="/head/kinect2/depth/camera_info"/>
 
 
         <remap from="depth_registered/camera_info" to="/head/kinect2/depth_registered/camera_info"/>
         <remap from="depth_registered/image_rect" to="/head/kinect2/depth_registered/image_rect"/>
+
+        <param name="queue_size" value="25"/>
     </node>
 
     <!-- Convert it into a point cloud -->
@@ -25,7 +27,7 @@
         <remap from="depth_registered/image_rect" to="/head/kinect2/depth_registered/image_rect"/>
         <remap from="rgb/image_rect_color" to="/head/kinect2/rgb/image_color"/>
         <remap from="rgb/camera_info" to="/head/kinect2/rgb/camera_info"/>
-     
+        <param name="queue_size" value="20"/>
     </node>
 
 </launch> 
