@@ -1,0 +1,37 @@
+two_d_mode: true
+frequency: 100.
+# The Segway RMP publishes at 100 Hz and the Stargazer publishes at 10 Hz. This
+# timeout will fire if we miss 10 sequential Stargazer messages.
+sensor_timeout: 1.
+map_frame: map
+odom_frame: odom
+base_link_frame: herb_base
+# Since the StarGazer provides global absolute position data, we should set
+# world_frame to the same value as map_frame. The Segway driver is resposnible
+# for publishing the odom to herb_base transform.
+world_frame: map
+# Segway RMP odometry.
+# TODO: Switch to ignoring the Pose component of the message and only
+# integrating twists. This is currently broken because segway_rmp_node does not
+# publish a valid twist covariance matrix.
+#odom0: odom
+
+#odom0_differential: true
+#odom0_config: [
+#    true , true , false, # x, y, z
+#    false, false, true , # roll, pitch, yaw
+#    false, false, false, # x dot, y dot, z dot
+#    false, false, false, # roll dot, pitch dot, yaw dot
+#    false, false, false  # x ddot, y ddot, z ddot
+#]
+# Stargazer readings. This specifies a full 6-DOF pose, but will be snapped
+# into the plane by the "two_d_mode" flag.
+pose0: stargazer/robot_pose
+pose0_differential: false
+pose0_config: [ 
+    true , true , true , # x, y, z
+    true , true , true , # roll, pitch, yaw
+    false, false, false, # x dot, y dot, z dot
+    false, false, false, # roll dot, pitch dot, yaw dot
+    false, false, false  # x ddot, y ddot, z ddot
+]
