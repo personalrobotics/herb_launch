@@ -1,0 +1,31 @@
+<launch>
+    
+  <node pkg="nodelet" type="nodelet" name="standalone_nodelet"  args="manager"/>
+
+    <!-- Convert it into a point cloud -->
+    <node pkg="nodelet" type="nodelet" name="registrar"
+        args="load depth_image_proc/register standalone_nodelet">
+        <remap from="rgb/camera_info" to="/head/kinect2/rgb/camera_info"/>
+        <remap from="depth/image_rect" to="/head/kinect2/depth/image_raw"/>
+        <remap from="depth/camera_info" to="/head/kinect2/depth/camera_info"/>
+
+
+        <remap from="depth_registered/camera_info" to="/head/kinect2/depth_registered/camera_info"/>
+        <remap from="depth_registered/image_rect" to="/head/kinect2/depth_registered/image_rect"/>
+    </node>
+
+    <!-- Convert it into a point cloud -->
+    <node pkg="nodelet" type="nodelet" name="cloudify"
+        args="load depth_image_proc/point_cloud_xyzrgb standalone_nodelet ">
+        <!--
+        <remap from="image_rect" to="/head/kinect2/depth_registered/image_rect"/>
+        <remap from="camera_info" to="/head/kinect2/depth_registered/camera_info"/>
+        -->
+    
+        <remap from="depth_registered/image_rect" to="/head/kinect2/depth_registered/image_rect"/>
+        <remap from="rgb/image_rect_color" to="/head/kinect2/rgb/image_color"/>
+        <remap from="rgb/camera_info" to="/head/kinect2/rgb/camera_info"/>
+     
+    </node>
+
+</launch> 
