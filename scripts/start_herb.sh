@@ -6,10 +6,10 @@
 function launcher {
     if (screen -ls | grep -q $1) 
     then
-	echo "WARNING! $1 is already running!"
+        echo "WARNING! $1 is already running!"
     else
-	screen -d -S $1 -m bash
-	screen -S $1 -p 0 -X stuff "source /home/prdemo/ros-hydro/use-hydro.sh; $2$(printf \\r)"	
+        screen -d -S $1 -m bash
+        screen -S $1 -p 0 -X stuff "source /home/prdemo/ros-hydro/use-hydro.sh; $2$(printf \\r)"
     fi
 }
 
@@ -24,7 +24,3 @@ pr_launcher "head"       "head.launch"
 pr_launcher "apriltags"  "apriltags.launch"
 pr_launcher "joystick"   "joystick.launch"
 pr_launcher "segway"     "segway.launch"
-
- 
-    
-
