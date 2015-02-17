@@ -14,4 +14,4 @@ owd:
   differential6_ratio: 0.0
   gravity_vector: '0,0,-1'
   tf_prefix: head_owd
-  joint_prefix: /head/
+  joint_prefix: /head/wam

@@ -12,15 +12,15 @@ def handstate_callback(handstate_msg):
     jointstate_msg = JointState()
     jointstate_msg.header.stamp = handstate_msg.header.stamp
     jointstate_msg.name = [
-        joint_prefix + 'j00',
+        joint_prefix + '00',
         # Joint j01 is a mimic joint that is published by robot_state_publisher.
-        joint_prefix + 'j01',
-        joint_prefix + 'j11',
-        joint_prefix + 'j21',
+        joint_prefix + '01',
+        joint_prefix + '11',
+        joint_prefix + '21',
         # TODO: These are not currently being published. See below.
-        #joint_prefix + 'j02',
-        #joint_prefix + 'j12',
-        #joint_prefix + 'j22',
+        #joint_prefix + '02',
+        #joint_prefix + '12',
+        #joint_prefix + '22',
     ]
     jointstate_msg.position += [ handstate_msg.positions[3] ]
     jointstate_msg.position += handstate_msg.inner_links

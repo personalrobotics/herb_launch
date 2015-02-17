@@ -2,7 +2,7 @@ bhd:
   # "high strain gauge" limit
   hsg_value: 10000
   tf_prefix: right_owd
-  joint_prefix: /right/
+  joint_prefix: /right/j
 owd:
   cpus_to_run_on: 6,7
   canbus_number: 1
@@ -21,4 +21,4 @@ owd:
   motor6_transmission_ratio: 9.6151728
   motor7_transmission_ratio: 14.928346369504156
   tf_prefix: right_owd
-  joint_prefix: /right/
+  joint_prefix: /right/j
