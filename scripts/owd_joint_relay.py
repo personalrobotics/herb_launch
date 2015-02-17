@@ -13,8 +13,8 @@ def wamstate_callback(wamstate_msg):
 
     jointstate_msg = JointState()
     jointstate_msg.header.stamp = wamstate_msg.header.stamp
-    jointstate_msg.name = [ '{:s}wam{:d}'.format(tf_prefix, idof + 1)
-                            for idof in num_dof ]
+    jointstate_msg.name = [ '{:s}/wam{:d}'.format(tf_prefix, idof + 1)
+                            for idof in xrange(num_dof) ]
     jointstate_msg.position = wamstate_msg.positions
     jointstate_msg.velocity = wamstate_msg.velocities
     jointstate_msg.effort = wamstate_msg.torques
