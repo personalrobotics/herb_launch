@@ -13,7 +13,7 @@ def wamstate_callback(wamstate_msg):
 
     jointstate_msg = JointState()
     jointstate_msg.header.stamp = wamstate_msg.header.stamp
-    jointstate_msg.name = [ '{:s}/wam{:d}'.format(tf_prefix, idof + 1)
+    jointstate_msg.name = [ '{:s}j{:d}'.format(joint_prefix, idof + 1)
                             for idof in xrange(num_dof) ]
     jointstate_msg.position = wamstate_msg.positions
     jointstate_msg.velocity = wamstate_msg.velocities
@@ -23,11 +23,11 @@ def wamstate_callback(wamstate_msg):
     
 
 def main():
-    global jointstate_pub, tf_prefix
+    global jointstate_pub, joint_prefix
 
     rospy.init_node('owd_joint_relay')
 
-    tf_prefix = rospy.get_param('tf_prefix', '')
+    joint_prefix = rospy.get_param('joint_prefix', '')
 
     jointstate_pub = rospy.Publisher('/joint_states', JointState)
     wamstate_sub = rospy.Subscriber('wamstate', WAMState, wamstate_callback)

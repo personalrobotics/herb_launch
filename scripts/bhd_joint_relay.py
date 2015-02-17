@@ -12,27 +12,32 @@ def handstate_callback(handstate_msg):
     jointstate_msg = JointState()
     jointstate_msg.header.stamp = handstate_msg.header.stamp
     jointstate_msg.name = [
-        tf_prefix + '/j00',
-        tf_prefix + '/j11',
-        tf_prefix + '/j11',
-        tf_prefix + '/j21',
-        tf_prefix + '/j12',
-        tf_prefix + '/j12',
-        tf_prefix + '/j22',
+        joint_prefix + 'j00',
+        # Joint j01 is a mimic joint that is published by robot_state_publisher.
+        joint_prefix + 'j01',
+        joint_prefix + 'j11',
+        joint_prefix + 'j21',
+        # TODO: These are not currently being published. See below.
+        #joint_prefix + 'j02',
+        #joint_prefix + 'j12',
+        #joint_prefix + 'j22',
     ]
-    jointstate_msg.position += [ handstate_msg.positions[0] ]
+    jointstate_msg.position += [ handstate_msg.positions[3] ]
     jointstate_msg.position += handstate_msg.inner_links
-    jointstate_msg.position += handstate_msg.outer_links
+
+    # TODO: These positions look very wrong, so we'll let robot_state_publisher
+    # use the mimic ratios in HERB's URDF to compute the distal joint angles. 
+    #jointstate_msg.position += handstate_msg.outer_links
 
     jointstate_pub.publish(jointstate_msg)
     
 
 def main():
-    global jointstate_pub, tf_prefix
+    global jointstate_pub, joint_prefix
 
     rospy.init_node('bhd_joint_relay')
 
-    tf_prefix = rospy.get_param('tf_prefix', '')
+    joint_prefix = rospy.get_param('joint_prefix', '')
 
     jointstate_pub = rospy.Publisher('/joint_states', JointState)
     wamstate_sub = rospy.Subscriber('handstate', BHState, handstate_callback)
