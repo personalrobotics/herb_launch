@@ -18,6 +18,7 @@ function pr_launcher {
 
 launcher    "core"         "roscore"
 pr_launcher "transforms"   "transforms.launch"
+pr_launcher "left_arm"     "left_arm.launch"
 pr_launcher "right_arm"    "right_arm.launch"
 pr_launcher "head"         "head.launch"
 pr_launcher "apriltags"    "apriltags.launch"
