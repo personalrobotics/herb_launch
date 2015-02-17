@@ -1,5 +1,6 @@
 interface_type: serial
 serial_port: /dev/segway
 rmp_type: 200/400
-broadcast_tf: true
+# The /herb_base to /odom transform is published by localization_local.
+broadcast_tf: false
 frame_id: herb_base
