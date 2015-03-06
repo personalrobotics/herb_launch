@@ -1,5 +1,3 @@
 <launch>
-  <group ns="segway_rmp_node">
     <include file="$(find navigation_controller)/launch/navigation_controller.launch" />
-  </group>
 </launch>
