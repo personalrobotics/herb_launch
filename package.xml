@@ -16,11 +16,7 @@
   <url type="bugtracker">https://github.com/personalrobotics/herb_launch/issues</url>
   <url type="repository">https://github.com/personalrobotics/herb_launch.git</url>
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>message_generation</build_depend>
-  <exec_depend>python</exec_depend>
-  <exec_depend>rospy</exec_depend>
   <exec_depend>owd</exec_depend>
+  <exec_depend>owd_or_traj</exec_depend>
   <exec_depend>owd_plugins</exec_depend>
-  <depend>owd_msgs</depend>
-  <depend>sensor_msgs</depend>
 </package>
