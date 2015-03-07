@@ -1,7 +1,9 @@
 bhd:
   # "high strain gauge" limit
   hsg_value: 10000
-  tf_prefix: left
+  # TF frames will be published by robot_state_publisher.
+  publish_transforms: false
+  joint_prefix: /left/j
 owd:
   cpus_to_run_on: 4,5
   canbus_number: 0
@@ -19,4 +21,6 @@ owd:
   motor5_transmission_ratio: 9.996531673714642
   motor6_transmission_ratio: 9.477353552911287
   motor7_transmission_ratio: 14.976568786213825
-  tf_prefix: left
+  # TF frames will be published by robot_state_publisher.
+  publish_transforms: false
+  joint_prefix: /left/j

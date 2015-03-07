@@ -12,7 +12,7 @@
     </node>
 
     <node pkg="stargazer" type="stargazer_publisher.py" name="stargazer"
-          clear_params="true">
+          clear_params="true" output="screen">
         <remap from="robot_pose" to="stargazer/robot_pose"/>
         <remap from="robot_pose_array" to="stargazer/robot_pose_array"/>
         <rosparam command="load" file="$(find herb_launch)/config/stargazer.yaml"/>
