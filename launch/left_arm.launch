@@ -6,8 +6,8 @@
     <node pkg="owd" type="owd" name="owd" output="screen" respawn="false">
       <param name="calibration_file" type="string"
              value="$(find herb_launch)/calibration/left_wam_joint_calibrations"/>
-      <!-- TODO: Load hybrid_plugin and owd_ortraj. -->
-      <param name="owd_plugins" type="string" value=""/>
+      <!-- This variable is set by an env-hook in owd_ortraj. -->
+      <param name="owd_plugins" type="string" value="$(env OWD_ORTRAJ_PLUGIN)"/>
     </node>
   </group>
 </launch>

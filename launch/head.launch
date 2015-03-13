@@ -4,8 +4,8 @@
     <rosparam command="load" file="$(find herb_launch)/config/owd_head.yaml"/>
 
     <node pkg="pantilt" type="owd" name="owd" output="screen" respawn="false">
-      <!-- TODO: Load hybrid_plugin and owd_ortraj. -->
-      <param name="owd_plugins" type="string" value=""/>
+      <!-- This variable is set by an env-hook in owd_ortraj. -->
+      <param name="owd_plugins" type="string" value="$(env OWD_ORTRAJ_PLUGIN)"/>
     </node>
   </group>
 </launch>

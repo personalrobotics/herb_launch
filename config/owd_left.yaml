@@ -24,3 +24,7 @@ owd:
   # TF frames will be published by robot_state_publisher.
   publish_transforms: false
   joint_prefix: /left/j
+  # owd_ortraj plugin configuration
+  owd_ortraj:
+    robot_name: herb
+    dof_indices: [ 4,  6,  8,  9, 10, 11, 12 ]
