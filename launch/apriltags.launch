@@ -5,7 +5,7 @@
   -->
   <node pkg="apriltags" type="apriltags" name="apriltags_kinect2" output="screen">
     <param name="~default_tag_size" value="0.048" />
-    <param name="~tf_frame" value="/head/kinect2/colorFrame"/>
+    <param name="~tf_frame" value="/head/kinect2_rgb_optical_frame"/>
    
     <!-- 
     <rosparam param="tag_data">
@@ -14,7 +14,7 @@
     </rosparam>
     --> 
     
-    <remap from="~image" to="/head/kinect2/rgb/image_color"/>
+    <remap from="~image" to="/head/kinect2/rgb/image"/>
     <remap from="~camera_info" to="/head/kinect2/rgb/camera_info"/>
     <!--
     <remap from="~marker_array" to="/apriltags/marker_array"/>
