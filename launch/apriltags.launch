@@ -6,6 +6,7 @@
     <!--
     THIS IS NOW IN CONFIG
     <param name="~default_tag_size" value="0.048" />
+<<<<<<< HEAD
     <param name="~tf_frame" value="/head/kinect2/colorFrame"/>
     -->
     
@@ -17,7 +18,7 @@
     </rosparam>
     --> 
     
-    <remap from="~image" to="/head/kinect2/rgb/image_color"/>
+    <remap from="~image" to="/head/kinect2/rgb/image"/>
     <remap from="~camera_info" to="/head/kinect2/rgb/camera_info"/>
     
     <!--
