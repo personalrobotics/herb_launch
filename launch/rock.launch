@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="rock" type="rock_ros" name="rock" output="screen">
+    <param
+      name="~models"
+      value="[['pop_tarts', '$(find pr_ordata)/data/objects/pop_tarts.yml'],
+              ['plastic_bowl', '$(find pr_ordata)/data/objects/plastic_bowl.yml']]"/>
+    <remap from="~/color_image" to="/head/kinect2/rgb/image"/>
+    <remap from="~/depth_image" to="/head/kinect2/depth_highres/image"/>
+    <remap from="~/camera_info" to="/head/kinect2/rgb/camera_info"/>
+  </node>
+</launch>
