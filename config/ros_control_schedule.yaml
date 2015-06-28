@@ -1,0 +1,14 @@
+- 
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
+  - { name: ft_acceleration }
+-
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
+-
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
+  - { name: ft_wrench }
+-
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
