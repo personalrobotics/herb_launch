@@ -3,28 +3,8 @@
     
     <rosparam command="load" file="$(find herb_launch)/config/apriltags.yaml"/>
     
-    <!--
-    THIS IS NOW IN CONFIG
-    <param name="~default_tag_size" value="0.048" />
-<<<<<<< HEAD
-    <param name="~tf_frame" value="/head/kinect2/colorFrame"/>
-    -->
-    
-    <!-- 
-    THIS SHOULD BE COMMENTED OUT
-    <rosparam param="tag_data">
-      "141":
-        size: 0.048
-    </rosparam>
-    --> 
-    
-    <remap from="~image" to="/head/kinect2/rgb/image"/>
-    <remap from="~camera_info" to="/head/kinect2/rgb/camera_info"/>
-    
-    <!--
-    THIS SHOULD BE COMMENTED OUT
-    <remap from="~marker_array" to="/apriltags/marker_array"/>
-    -->
+    <remap from="~image" to="/head/kinect2/qhd/image_color"/>
+    <remap from="~camera_info" to="/head/kinect2/qhd/camera_info"/>
     
   </node>
 </launch>
