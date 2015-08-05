@@ -1,0 +1,6 @@
+<launch>
+    <node name="skel_tracker" output="screen" pkg="openni2_tracker" type="tracker" >
+        <param name="tf_prefix" value="skel" />
+        <param name="relative_frame" value="/head/skel_depth_frame" />
+    </node>
+</launch>
