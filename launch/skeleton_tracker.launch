@@ -2,5 +2,6 @@
     <node name="skel_tracker" output="screen" pkg="openni2_tracker" type="tracker" >
         <param name="tf_prefix" value="skel" />
         <param name="relative_frame" value="/head/skel_depth_frame" />
+        <!-- relative_frame must be same name as link in herb's URDF -->
     </node>
 </launch>
