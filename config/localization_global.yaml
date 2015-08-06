@@ -15,7 +15,7 @@ world_frame: map
 # integrating twists. This is currently broken because segway_rmp_node does not
 # publish a valid twist covariance matrix.
 odom0: odometry/local
-odom0_differential: true
+odom0_relative: true
 odom0_config: [
     true,  true,  false, # x, y, z
     false, false, true,  # roll, pitch, yaw
