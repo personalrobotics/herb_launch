@@ -10,23 +10,18 @@ base_link_frame: herb_base
 # world_frame to the same value as map_frame. The Segway driver is resposnible
 # for publishing the odom to herb_base transform.
 world_frame: map
-# Segway RMP odometry.
-# TODO: Switch to ignoring the Pose component of the message and only
-# integrating twists. This is currently broken because segway_rmp_node does not
-# publish a valid twist covariance matrix.
+# Segway RMP odometry -- twist only.
 odom0: odometry/local
-odom0_relative: true
 odom0_config: [
-    true,  true,  false, # x, y, z
-    false, false, true,  # roll, pitch, yaw
-    false, false, false, # x dot, y dot, z dot
-    false, false, false, # roll dot, pitch dot, yaw dot
+    false, false, false, # x, y, z
+    false, false, false, # roll, pitch, yaw
+    true,  true,  false, # x dot, y dot, z dot
+    false, false, true,  # roll dot, pitch dot, yaw dot
     false, false, false  # x ddot, y ddot, z ddot
 ]
 # Stargazer readings. This specifies a full 6-DOF pose, but will be snapped
 # into the plane by the "two_d_mode" flag.
 pose0: stargazer/robot_pose
-pose0_differential: false
 pose0_config: [
     true , true , true , # x, y, z
     true , true , true , # roll, pitch, yaw
