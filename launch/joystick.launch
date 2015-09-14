@@ -2,6 +2,5 @@
     <machine name="joystick" address="herb0" />
 
     <node machine="joystick" pkg="joy" type="joy_node" name="joy"/>
-    <node machine="joystick" pkg="pr_joy" type="prjoy" name="prjoy"/>
-    <node machine="joystick" pkg="pr_joy" type="joy.py" name="joy_toggle"/>
+    <node machine="joystick" pkg="pr_joy" type="joy.py" name="prjoy"/>
 </launch>
