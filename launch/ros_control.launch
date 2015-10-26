@@ -1,5 +1,5 @@
 <launch>
-  <node pkg="libbarrett_ros" type="controller" name="controller">
+  <node pkg="libbarrett_ros" type="controller" name="controller" output="screen">
     <rosparam command="load" subst_value="true"
               file="$(find herb_launch)/config/ros_control.yaml"/>
 
@@ -10,6 +10,7 @@
            -->
     <rosparam command="load" ns="buses/right_arm/schedule"
               file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
+
 <!--    <rosparam command="load" ns="buses/left_arm/schedule"
               file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
 -->
