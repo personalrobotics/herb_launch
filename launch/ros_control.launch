@@ -5,13 +5,15 @@
 
     <param name="buses/right_arm/configuration_path" type="str"
            value="$(find herb_launch)/libbarrett_config/right_arm/default.conf"/>
-<!--    <param name="buses/left_arm/configuration_path" type="str"
+<!--
+    <param name="buses/left_arm/configuration_path" type="str"
            value="$(find herb_launch)/libbarrett_config/left_arm/default.conf"/>
-           -->
+-->
+
     <rosparam command="load" ns="buses/right_arm/schedule"
               file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
-
-<!--    <rosparam command="load" ns="buses/left_arm/schedule"
+<!--
+    <rosparam command="load" ns="buses/left_arm/schedule"
               file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
 -->
   </node>
@@ -19,3 +21,4 @@
   <rosparam command="load"
             file="$(find herb_launch)/config/ros_control_controllers.yaml"/>
 </launch>
+<!-- set ft=xml: -->

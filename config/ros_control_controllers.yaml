@@ -4,37 +4,58 @@ joint_state_controller:
   publish_rate: 500
 
 # Position Controllers -----------------------------------------
-joint1_position_controller:
-  type: effort_controllers/JointPositionController
-  joint: /right/j1
-  pid: {p: 900.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+rewd_joint_group_position_controller:
+  type: rewd_controllers/JointGroupPositionController
+  joints:
+   - /right/j1
+   - /right/j2
+   - /right/j3
+   - /right/j4
+   - /right/j5
+   - /right/j6
+   - /right/j7
+  gains:
+    right/j1: {p: 900.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: {p: 600.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: {p: 500.0, i: 0.5, d: 2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j6: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j7: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
-joint2_position_controller:
-  type: effort_controllers/JointPositionController
-  joint: /right/j2
-  pid: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
-joint3_position_controller:
-  type: effort_controllers/JointPositionController
-  joint: /right/j3
-  pid: {p: 600.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
-joint4_position_controller:
-  type: effort_controllers/JointPositionController
-  joint: /right/j4
-  pid: {p: 500.0, i: 0.5, d: 2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-
-joint5_position_controller:
-  type: effort_controllers/JointPositionController
-  joint: /right/j5
-  pid: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-
-joint6_position_controller:
-  type: effort_controllers/JointPositionController
-  joint: /right/j6
-  pid: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-
-joint7_position_controller:
-  type: effort_controllers/JointPositionController
-  joint: /right/j7
-  pid: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+#joint1_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: /right/j1
+#  pid: {p: 900.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+#
+#joint2_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: /right/j2
+#  pid: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+#
+#joint3_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: /right/j3
+#  pid: {p: 600.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+#
+#joint4_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: /right/j4
+#  pid: {p: 500.0, i: 0.5, d: 2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+#
+#joint5_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: /right/j5
+#  pid: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+#
+#joint6_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: /right/j6
+#  pid: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+#
+#joint7_position_controller:
+#  type: effort_controllers/JointPositionController
+#  joint: /right/j7
+#  pid: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
