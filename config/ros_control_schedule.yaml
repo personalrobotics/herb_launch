@@ -5,6 +5,7 @@
 -
   - { name: wam_position, required: true }
   - { name: wam_torque, required: true }
+  - { name: bh_position, required: true }
 -
   - { name: wam_position, required: true }
   - { name: wam_torque, required: true }
@@ -12,3 +13,4 @@
 -
   - { name: wam_position, required: true }
   - { name: wam_torque, required: true }
+  - { name: bh_position, required: true }
