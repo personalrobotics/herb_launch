@@ -23,6 +23,16 @@ rewd_joint_group_position_controller:
     right/j6: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
     right/j7: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
+rewd_gravity_compensation_controller:
+  type: rewd_controllers/GravityCompensationController
+  joints:
+   - /right/j1
+   - /right/j2
+   - /right/j3
+   - /right/j4
+   - /right/j5
+   - /right/j6
+   - /right/j7
 
 
 #joint1_position_controller:
