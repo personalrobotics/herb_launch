@@ -27,18 +27,18 @@ then
 else
     echo -e "Checking screens:"
 
-    pr_checker  "core"        
-    #pr_checker "transforms"   
-    pr_checker "state_pub"   
-    pr_checker "left_arm"    
-    pr_checker "right_arm"   
-    pr_checker "head"        
-    pr_checker "apriltags"   
-    pr_checker "joystick"    
-    pr_checker "segway"      
-    pr_checker "localization"
-    pr_checker "navigation"  
-    pr_checker "talker"      
+    launcher_check  "core"        
+    #launcher_check "transforms"   
+    launcher_check "state_pub"   
+    launcher_check "left_arm"    
+    launcher_check "right_arm"   
+    launcher_check "head"        
+    launcher_check "apriltags"   
+    launcher_check "joystick"    
+    launcher_check "segway"      
+    launcher_check "localization"
+    launcher_check "navigation"  
+    launcher_check "talker"      
 fi
 
 echo -e "Checking ros topics:" # Need to generate actual useful list
