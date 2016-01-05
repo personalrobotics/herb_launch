@@ -13,11 +13,29 @@ function launcher_check {
 }
 
 function rostopic_check {
-    RESULTS=`timeout 2.0 rostopic echo -n 1 $1`
+    RESULTS=`timeout 2.0 rostopic echo -n 1 $1 2>&1`
     if echo -e ${RESULTS} | grep -q "header:"; then
         echo -e "$1: \033[0;36m RUNNING \033[0m"
     else
         echo -e "$1: \033[0;31m NOT RUNNING \033[0m"
+    fi
+}
+
+function rosdiag_check {
+    RESULTS=`timeout 2.0 rostopic echo -n 1 /diagnostics --filter "'$1' in m.status[0].name" 2>&1`
+    if echo -e ${RESULTS} | grep -q "header:"; then
+        echo -e "/diagnostics $1: \033[0;36m RUNNING \033[0m"
+    else
+        echo -e "/diagnostics $1: \033[0;31m NOT RUNNING \033[0m"
+    fi
+}
+
+function rostf_check {
+    RESULTS=`timeout 1.0 rosrun tf tf_echo herb_base $1 2>&1`
+    if echo -e ${RESULTS} | grep -q "Translation:"; then
+        echo -e "herb_base -> $1: \033[0;36m FOUND \033[0m"
+    else
+        echo -e "herb_base -> $1: \033[0;31m NOT FOUND \033[0m"
     fi
 }
 
@@ -41,10 +59,38 @@ else
     launcher_check "talker"      
 fi
 
-echo -e "Checking ros topics:" # Need to generate actual useful list
-rostopic_check "/tf"
-rostopic_check "/tf/transforms"
-rostopic_check "/joint_states"
-rostopic_check "/rosout"
+echo -e ""
+echo -e "Checking ros topics:"
+rostopic_check "/right/owd/wamstate"
+rostopic_check "/right/owd/handstate"
+rostopic_check "/right/owd/forcetorque"
+rostopic_check "/left/owd/wamstate"
+rostopic_check "/left/owd/handstate"
+rostopic_check "/left/owd/forcetorque"
+rostopic_check "/head/owd/wamstate"
+rostopic_check "/odom"
+rostopic_check "/stargazer/robot_pose_array"
+rostopic_check "/segway/segway_status"
+rostopic_check "/navcontroller/navstatus"
+rosdiag_check "localization_global"
+rostopic_check "/head/kinect2/qhd/camera_info"
+rostopic_check "/apriltags_kinect2/detections"
+rostopic_check "/say/status"
+rosdiag_check "joy"
+
+echo -e ""
+echo -e "Checking ros tf transforms from herb_base:"
+rostf_check "left/wam7"
+rostf_check "left/hand_base"
+rostf_check "right/wam7"
+rostf_check "right/hand_base"
+rostf_check "head/wam2"
+#rostf_check "head/kinect2_link"
+rostf_check "/head/kinect2_rgb_optical_frame"
+rostf_check "stargazer_lens"
+#rostf_check "base_hokuyo_right"
+#rostf_check "base_hokuyo_left"
+#rostf_check "base_hokuyo_front"
+
 
 # Put other misc checks here?
