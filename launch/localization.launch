@@ -1,9 +1,9 @@
 <launch>
-    <node pkg="robot_localization" type="ukf_localization_node"
+        <!--    <node pkg="robot_localization" type="ukf_localization_node"
           name="localization_local" clear_params="true" output="screen">
         <remap from="odometry/filtered" to="odometry/local"/>
         <rosparam command="load" file="$(find herb_launch)/config/localization_local.yaml"/>
-    </node>
+    </node>-->
 
     <node pkg="robot_localization" type="ukf_localization_node"
           name="localization_global" clear_params="true" output="screen">
@@ -17,4 +17,5 @@
         <remap from="robot_pose_array" to="stargazer/robot_pose_array"/>
         <rosparam command="load" file="$(find herb_launch)/config/stargazer.yaml"/>
     </node>
+
 </launch>

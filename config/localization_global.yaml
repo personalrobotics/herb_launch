@@ -1,3 +1,4 @@
+# print_diagnostics: true
 two_d_mode: true
 frequency: 100.
 # The Stargazer publishes at 10 Hz. This timeout will fire if we miss 10
@@ -11,7 +12,7 @@ base_link_frame: herb_base
 # for publishing the odom to herb_base transform.
 world_frame: map
 # Segway RMP odometry -- twist only.
-odom0: odometry/local
+odom0: odom
 odom0_config: [
     false, false, false, # x, y, z
     false, false, false, # roll, pitch, yaw
@@ -23,7 +24,7 @@ odom0_config: [
 # into the plane by the "two_d_mode" flag.
 pose0: stargazer/robot_pose
 pose0_config: [
-    true , true , true , # x, y, z
+    true , true , true, # x, y, z
     true , true , true , # roll, pitch, yaw
     false, false, false, # x dot, y dot, z dot
     false, false, false, # roll dot, pitch dot, yaw dot
