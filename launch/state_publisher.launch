@@ -6,6 +6,7 @@
 
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher"/>
 
+<!--
     <node pkg="herb_launch" type="segway_joint_relay.py" name="relay" ns="segway"/>
 
     <node pkg="herb_launch" type="owd_joint_relay.py" name="relay" ns="head/owd"/>
@@ -15,4 +16,5 @@
 
     <node pkg="herb_launch" type="owd_joint_relay.py" name="relay" ns="left/owd"/>
     <node pkg="herb_launch" type="bhd_joint_relay.py" name="relay" ns="left/bhd"/>
+-->
 </launch>
