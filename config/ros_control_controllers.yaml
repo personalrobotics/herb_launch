@@ -65,38 +65,8 @@ rewd_trajectory_controller:
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
 
+# Tare controller
+right_tare_controller:
+  type: pr_ros_controllers/ForceTorqueTareController
+  ft_name: right/ft_wrench
 
-#joint1_position_controller:
-#  type: effort_controllers/JointPositionController
-#  joint: /right/j1
-#  pid: {p: 900.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-#
-#joint2_position_controller:
-#  type: effort_controllers/JointPositionController
-#  joint: /right/j2
-#  pid: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-#
-#joint3_position_controller:
-#  type: effort_controllers/JointPositionController
-#  joint: /right/j3
-#  pid: {p: 600.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-#
-#joint4_position_controller:
-#  type: effort_controllers/JointPositionController
-#  joint: /right/j4
-#  pid: {p: 500.0, i: 0.5, d: 2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-#
-#joint5_position_controller:
-#  type: effort_controllers/JointPositionController
-#  joint: /right/j5
-#  pid: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-#
-#joint6_position_controller:
-#  type: effort_controllers/JointPositionController
-#  joint: /right/j6
-#  pid: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-#
-#joint7_position_controller:
-#  type: effort_controllers/JointPositionController
-#  joint: /right/j7
-#  pid: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
