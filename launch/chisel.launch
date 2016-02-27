@@ -1,0 +1,10 @@
+<launch>
+    <node pkg="nodelet" type="nodelet" name="nodelet_manager" args="manager" />
+    <node pkg="nodelet" type="nodelet" name="depth_converter"
+        args="load depth_image_proc/convert_metric nodelet_manager" >
+        <remap from="image_raw" to="/head/kinect2/qhd/image_depth_rect"/>
+        <remap from="image" to="/head/kinect2/qhd/image_depth_rect_float"/>
+    </node>
+    <include file="$(find depth_mask)/launch/launch_depth_mask.launch"/>
+    <include file="$(find chisel_ros)/launch/launch_kinect_local.launch"/>
+</launch>
