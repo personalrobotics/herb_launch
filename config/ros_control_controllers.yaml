@@ -67,6 +67,7 @@ rewd_trajectory_controller:
 
 # Tare controller
 right_tare_controller:
-  type: pr_ros_controllers/ForceTorqueTareController
-  ft_name: right/ft_wrench
+  type: tare_controller/TareController
+  publish_rate: 500
+  tare_handle_name: right/ft_tare
 
