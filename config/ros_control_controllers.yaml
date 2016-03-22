@@ -71,3 +71,7 @@ right_tare_controller:
   publish_rate: 500
   tare_handle_name: right/ft_tare
 
+
+right_hand_controller:
+  type: position_command_controller/PositionCommandController
+  resource_name: /right
