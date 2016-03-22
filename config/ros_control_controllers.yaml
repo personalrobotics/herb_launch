@@ -67,7 +67,7 @@ rewd_trajectory_controller:
 
 # Tare controller
 right_tare_controller:
-  type: tare_controller/TareController
+  type: trigger_controller/TriggerController
   publish_rate: 500
   tare_handle_name: right/ft_tare
 
