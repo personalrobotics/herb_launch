@@ -23,6 +23,7 @@ then
 fi
 
 launcher    "core"         "roscore"
+sleep 5s
 #pr_launcher "transforms"   "transforms.launch"
 pr_launcher "state_pub"    "state_publisher.launch"
 pr_launcher "left_arm"     "left_arm.launch"
