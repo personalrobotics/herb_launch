@@ -9,6 +9,7 @@ buses:
     - /right/j5
     - /right/j6
     - /right/j7
+    hand_name: /right
     hand_finger_joint_names:
     - [ /right/j01, /right/j02 ]
     - [ /right/j11, /right/j12 ]
