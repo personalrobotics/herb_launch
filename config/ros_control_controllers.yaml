@@ -4,7 +4,7 @@ joint_state_controller:
   publish_rate: 500
 
 # Position Controllers -----------------------------------------
-rewd_joint_group_position_controller:
+right_joint_group_position_controller:
   type: rewd_controllers/JointGroupPositionController
   joints:
     - /right/j1
@@ -23,7 +23,7 @@ rewd_joint_group_position_controller:
     right/j6: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
     right/j7: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
-rewd_gravity_compensation_controller:
+right_gravity_compensation_controller:
   type: rewd_controllers/GravityCompensationController
   joints:
     - /right/j1
@@ -34,7 +34,7 @@ rewd_gravity_compensation_controller:
     - /right/j6
     - /right/j7
 
-rewd_trajectory_controller:
+right_trajectory_controller:
   type: effort_controllers/JointTrajectoryController
   joints:
     - /right/j1
@@ -67,11 +67,20 @@ rewd_trajectory_controller:
 
 # Tare controller
 right_tare_controller:
-  type: tare_controller/TareController
+  type: trigger_controller/TriggerController
   publish_rate: 500
-  tare_handle_name: right/ft_tare
+  tare_handle_name: /right/ft_tare
 
+# left_tare_controller:
+#   type: trigger_controller/TriggerController
+#   publish_rate: 500
+#   tare_handle_name: /left/ft_tare
 
+# Hand controller
 right_hand_controller:
   type: position_command_controller/PositionCommandController
   resource_name: /right
+
+# left_hand_controller:
+#   type: position_command_controller/PositionCommandController
+#   resource_name: /left
