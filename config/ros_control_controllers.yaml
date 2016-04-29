@@ -1,9 +1,10 @@
-# Publish all joint states -------------------------------------
+# Publish all joint states -----------------------------------------------------
 joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 500
 
-# Position Controllers -----------------------------------------
+
+# Position Controllers ---------------------------------------------------------
 right_joint_group_position_controller:
   type: rewd_controllers/JointGroupPositionController
   joints:
@@ -15,14 +16,35 @@ right_joint_group_position_controller:
     - /right/j6
     - /right/j7
   gains:
-    right/j1: {p: 900.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
     right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j3: {p: 600.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j4: {p: 500.0, i: 0.5, d: 2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j5: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j6: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j7: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
+left_joint_group_position_controller:
+  type: rewd_controllers/JointGroupPositionController
+  joints:
+    - /left/j1
+    - /left/j2
+    - /left/j3
+    - /left/j4
+    - /left/j5
+    - /left/j6
+    - /left/j7
+  gains:
+    left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+
+
+# Gravity Compensation Controllers ---------------------------------------------
 right_gravity_compensation_controller:
   type: rewd_controllers/GravityCompensationController
   joints:
@@ -34,6 +56,19 @@ right_gravity_compensation_controller:
     - /right/j6
     - /right/j7
 
+left_gravity_compensation_controller:
+  type: rewd_controllers/GravityCompensationController
+  joints:
+    - /left/j1
+    - /left/j2
+    - /left/j3
+    - /left/j4
+    - /left/j5
+    - /left/j6
+    - /left/j7
+
+
+# Trajectory controllers -------------------------------------------------------
 right_trajectory_controller:
   type: effort_controllers/JointTrajectoryController
   joints:
@@ -45,13 +80,13 @@ right_trajectory_controller:
     - /right/j6
     - /right/j7
   gains:
-    right/j1: {p: 900.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
     right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j3: {p: 600.0, i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j4: {p: 500.0, i: 0.5, d: 2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j5: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j6: {p: 40.0, i: 0.5, d: 0.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j7: {p: 12.0, i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
   constraints: # TODO what are these values?
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
@@ -65,22 +100,111 @@ right_trajectory_controller:
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
 
-# Tare controller
-right_tare_controller:
-  type: trigger_controller/TriggerController
-  publish_rate: 500
-  tare_handle_name: /right/ft_tare
+left_trajectory_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - /left/j1
+    - /left/j2
+    - /left/j3
+    - /left/j4
+    - /left/j5
+    - /left/j6
+    - /left/j7
+  gains:
+    left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    left/j1: {trajectory: 0.05, goal: 0.02}
+    left/j2: {trajectory: 0.05, goal: 0.02}
+    left/j3: {trajectory: 0.05, goal: 0.02}
+    left/j4: {trajectory: 0.05, goal: 0.02}
+    left/j5: {trajectory: 0.05, goal: 0.02}
+    left/j6: {trajectory: 0.05, goal: 0.02}
+    left/j7: {trajectory: 0.05, goal: 0.02}
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
 
-# left_tare_controller:
-#   type: trigger_controller/TriggerController
-#   publish_rate: 500
-#   tare_handle_name: /left/ft_tare
+bimanual_trajectory_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - /left/j1
+    - /left/j2
+    - /left/j3
+    - /left/j4
+    - /left/j5
+    - /left/j6
+    - /left/j7
+    - /right/j1
+    - /right/j2
+    - /right/j3
+    - /right/j4
+    - /right/j5
+    - /right/j6
+    - /right/j7
+  gains:
+    left/j1:  {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j2:  {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j3:  {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j4:  {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j5:  {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j6:  {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j7:  {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    left/j1:  {trajectory: 0.05, goal: 0.02}
+    left/j2:  {trajectory: 0.05, goal: 0.02}
+    left/j3:  {trajectory: 0.05, goal: 0.02}
+    left/j4:  {trajectory: 0.05, goal: 0.02}
+    left/j5:  {trajectory: 0.05, goal: 0.02}
+    left/j6:  {trajectory: 0.05, goal: 0.02}
+    left/j7:  {trajectory: 0.05, goal: 0.02}
+    right/j1: {trajectory: 0.05, goal: 0.02}
+    right/j2: {trajectory: 0.05, goal: 0.02}
+    right/j3: {trajectory: 0.05, goal: 0.02}
+    right/j4: {trajectory: 0.05, goal: 0.02}
+    right/j5: {trajectory: 0.05, goal: 0.02}
+    right/j6: {trajectory: 0.05, goal: 0.02}
+    right/j7: {trajectory: 0.05, goal: 0.02}
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
 
-# Hand controller
+
+# Hand controllers -------------------------------------------------------------
 right_hand_controller:
   type: position_command_controller/PositionCommandController
   resource_name: /right
 
-# left_hand_controller:
-#   type: position_command_controller/PositionCommandController
-#   resource_name: /left
+left_hand_controller:
+  type: position_command_controller/PositionCommandController
+  resource_name: /left
+
+
+# Force/Torque Sensor Controller -----------------------------------------------
+force_torque_sensor_controller:
+  type: force_torque_sensor_controller/ForceTorqueSensorController
+  publish_rate: 50
+  
+
+# Tare controllers -------------------------------------------------------------
+right_tare_controller:
+  type: trigger_controller/TriggerController
+  tare_handle_name: /right/ft_tare
+
+left_tare_controller:
+  type: trigger_controller/TriggerController
+  tare_handle_name: /left/ft_tare
