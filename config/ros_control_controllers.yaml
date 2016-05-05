@@ -203,8 +203,8 @@ force_torque_sensor_controller:
 # Tare controllers -------------------------------------------------------------
 right_tare_controller:
   type: trigger_controller/TriggerController
-  tare_handle_name: /right/ft_tare
+  resource_name: /right/ft_tare
 
 left_tare_controller:
   type: trigger_controller/TriggerController
-  tare_handle_name: /left/ft_tare
+  resource_name: /left/ft_tare
