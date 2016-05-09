@@ -16,7 +16,14 @@ function pr_launcher {
     launcher $1 "roslaunch herb_launch $2 --wait"
 }
 
+if [ $(hostname) != 'herb0.personalrobotics.ri.cmu.edu' ]
+then
+    echo 'ERROR: HERB must be launched from herb0'
+    exit
+fi
+
 launcher    "core"         "roscore"
+sleep 5s
 pr_launcher "state_pub"    "state_publisher.launch"
 pr_launcher "ros_control"  "ros_control.launch"
 pr_launcher "apriltags"    "apriltags.launch"
@@ -24,3 +31,4 @@ pr_launcher "joystick"     "joystick.launch"
 pr_launcher "segway"       "segway.launch"
 pr_launcher "localization" "localization.launch"
 pr_launcher "navigation"   "navigation.launch"
+pr_launcher "talker"       "talker.launch"

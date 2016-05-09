@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="plane_fit" type="plane_fit_node" name="table" output="screen">
+    <remap from="depth_image" to="/head/kinect2/depth_lowres/image"/>
+    <remap from="camera_info" to="/head/kinect2/depth_lowres/camera_info"/>
+    <remap from="color_image" to="/head/kinect2/rgb_lowres/image"/>
+  </node>
+</launch>
