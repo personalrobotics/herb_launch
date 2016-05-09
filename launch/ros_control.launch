@@ -20,6 +20,7 @@
   <rosparam command="load"
             file="$(find herb_launch)/config/ros_control_controllers.yaml"/>
 
+  <!-- TODO timeout? -->
   <node name="ros_control_manager"
         pkg="controller_manager"
         type="spawner"
