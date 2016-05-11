@@ -1,7 +1,7 @@
 # Publish all joint states -----------------------------------------------------
 joint_state_controller:
   type: joint_state_controller/JointStateController
-  publish_rate: 500
+  publish_rate: 50
 
 
 # Position Controllers ---------------------------------------------------------
@@ -16,13 +16,14 @@ right_joint_group_position_controller:
     - /right/j6
     - /right/j7
   gains:
-    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    # create references to gain data which is reused in other controllers
+    right/j1: &j1_gains {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j2: &j2_gains {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: &j3_gains {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: &j4_gains {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: &j5_gains {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j6: &j6_gains {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j7: &j7_gains {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
 left_joint_group_position_controller:
   type: rewd_controllers/JointGroupPositionController
@@ -35,13 +36,13 @@ left_joint_group_position_controller:
     - /left/j6
     - /left/j7
   gains:
-    left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j1: *j1_gains
+    left/j2: *j2_gains
+    left/j3: *j3_gains
+    left/j4: *j4_gains
+    left/j5: *j5_gains
+    left/j6: *j6_gains
+    left/j7: *j7_gains
 
 
 # Gravity Compensation Controllers ---------------------------------------------
@@ -80,23 +81,24 @@ right_trajectory_controller:
     - /right/j6
     - /right/j7
   gains:
-    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j1: *j1_gains
+    right/j2: *j2_gains
+    right/j3: *j3_gains
+    right/j4: *j4_gains
+    right/j5: *j5_gains
+    right/j6: *j6_gains
+    right/j7: *j7_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
-    right/j1: {trajectory: 0.05, goal: 0.02}
-    right/j2: {trajectory: 0.05, goal: 0.02}
-    right/j3: {trajectory: 0.05, goal: 0.02}
-    right/j4: {trajectory: 0.05, goal: 0.02}
-    right/j5: {trajectory: 0.05, goal: 0.02}
-    right/j6: {trajectory: 0.05, goal: 0.02}
-    right/j7: {trajectory: 0.05, goal: 0.02}
+    # create reference to joint constraints that are reused for other joints
+    right/j1: &joint_traj_constraints {trajectory: 0.05, goal: 0.02}
+    right/j2: *joint_traj_constraints
+    right/j3: *joint_traj_constraints
+    right/j4: *joint_traj_constraints
+    right/j5: *joint_traj_constraints
+    right/j6: *joint_traj_constraints
+    right/j7: *joint_traj_constraints
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
 
@@ -111,23 +113,23 @@ left_trajectory_controller:
     - /left/j6
     - /left/j7
   gains:
-    left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j1: *j1_gains
+    left/j2: *j2_gains
+    left/j3: *j3_gains
+    left/j4: *j4_gains
+    left/j5: *j5_gains
+    left/j6: *j6_gains
+    left/j7: *j7_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
-    left/j1: {trajectory: 0.05, goal: 0.02}
-    left/j2: {trajectory: 0.05, goal: 0.02}
-    left/j3: {trajectory: 0.05, goal: 0.02}
-    left/j4: {trajectory: 0.05, goal: 0.02}
-    left/j5: {trajectory: 0.05, goal: 0.02}
-    left/j6: {trajectory: 0.05, goal: 0.02}
-    left/j7: {trajectory: 0.05, goal: 0.02}
+    left/j1: *joint_traj_constraints
+    left/j2: *joint_traj_constraints
+    left/j3: *joint_traj_constraints
+    left/j4: *joint_traj_constraints
+    left/j5: *joint_traj_constraints
+    left/j6: *joint_traj_constraints
+    left/j7: *joint_traj_constraints
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
 
@@ -149,37 +151,37 @@ bimanual_trajectory_controller:
     - /right/j6
     - /right/j7
   gains:
-    left/j1:  {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j2:  {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j3:  {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j4:  {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j5:  {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j6:  {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j7:  {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j1:  *j1_gains
+    left/j2:  *j2_gains
+    left/j3:  *j3_gains
+    left/j4:  *j4_gains
+    left/j5:  *j5_gains
+    left/j6:  *j6_gains
+    left/j7:  *j7_gains
+    right/j1: *j1_gains
+    right/j2: *j2_gains
+    right/j3: *j3_gains
+    right/j4: *j4_gains
+    right/j5: *j5_gains
+    right/j6: *j6_gains
+    right/j7: *j7_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
-    left/j1:  {trajectory: 0.05, goal: 0.02}
-    left/j2:  {trajectory: 0.05, goal: 0.02}
-    left/j3:  {trajectory: 0.05, goal: 0.02}
-    left/j4:  {trajectory: 0.05, goal: 0.02}
-    left/j5:  {trajectory: 0.05, goal: 0.02}
-    left/j6:  {trajectory: 0.05, goal: 0.02}
-    left/j7:  {trajectory: 0.05, goal: 0.02}
-    right/j1: {trajectory: 0.05, goal: 0.02}
-    right/j2: {trajectory: 0.05, goal: 0.02}
-    right/j3: {trajectory: 0.05, goal: 0.02}
-    right/j4: {trajectory: 0.05, goal: 0.02}
-    right/j5: {trajectory: 0.05, goal: 0.02}
-    right/j6: {trajectory: 0.05, goal: 0.02}
-    right/j7: {trajectory: 0.05, goal: 0.02}
+    left/j1:  *joint_traj_constraints
+    left/j2:  *joint_traj_constraints
+    left/j3:  *joint_traj_constraints
+    left/j4:  *joint_traj_constraints
+    left/j5:  *joint_traj_constraints
+    left/j6:  *joint_traj_constraints
+    left/j7:  *joint_traj_constraints
+    right/j1: *joint_traj_constraints
+    right/j2: *joint_traj_constraints
+    right/j3: *joint_traj_constraints
+    right/j4: *joint_traj_constraints
+    right/j5: *joint_traj_constraints
+    right/j6: *joint_traj_constraints
+    right/j7: *joint_traj_constraints
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
 
