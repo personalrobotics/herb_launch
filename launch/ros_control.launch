@@ -1,7 +1,7 @@
 <launch>
   <node pkg="libbarrett_ros" type="controller" name="controller" output="screen">
 
-    <rosparam command="load" subst_value="true"
+    <rosparam command="load"
               file="$(find herb_launch)/config/ros_control.yaml"/>
 
     <param name="buses/right_arm/configuration_path" type="str"
