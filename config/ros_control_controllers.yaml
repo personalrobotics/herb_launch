@@ -7,7 +7,7 @@ joint_state_controller:
 # Position Controllers ---------------------------------------------------------
 right_joint_group_position_controller:
   type: rewd_controllers/JointGroupPositionController
-  joints:
+  joints: &right_joints
     - /right/j1
     - /right/j2
     - /right/j3
@@ -15,19 +15,19 @@ right_joint_group_position_controller:
     - /right/j5
     - /right/j6
     - /right/j7
-  gains:
+  gains: &right_gains
     # create references to gain data which is reused in other controllers
-    right/j1: &j1_gains {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j2: &j2_gains {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j3: &j3_gains {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j4: &j4_gains {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j5: &j5_gains {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j6: &j6_gains {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j7: &j7_gains {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
 left_joint_group_position_controller:
   type: rewd_controllers/JointGroupPositionController
-  joints:
+  joints: &left_joints
     - /left/j1
     - /left/j2
     - /left/j3
@@ -35,59 +35,31 @@ left_joint_group_position_controller:
     - /left/j5
     - /left/j6
     - /left/j7
-  gains:
-    left/j1: *j1_gains
-    left/j2: *j2_gains
-    left/j3: *j3_gains
-    left/j4: *j4_gains
-    left/j5: *j5_gains
-    left/j6: *j6_gains
-    left/j7: *j7_gains
+  gains: &left_gains
+    left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
 
 # Gravity Compensation Controllers ---------------------------------------------
 right_gravity_compensation_controller:
   type: rewd_controllers/GravityCompensationController
-  joints:
-    - /right/j1
-    - /right/j2
-    - /right/j3
-    - /right/j4
-    - /right/j5
-    - /right/j6
-    - /right/j7
+  joints: *right_joints
 
 left_gravity_compensation_controller:
   type: rewd_controllers/GravityCompensationController
-  joints:
-    - /left/j1
-    - /left/j2
-    - /left/j3
-    - /left/j4
-    - /left/j5
-    - /left/j6
-    - /left/j7
+  joints: *left_joints
 
 
 # Trajectory controllers -------------------------------------------------------
 right_trajectory_controller:
   type: effort_controllers/JointTrajectoryController
-  joints:
-    - /right/j1
-    - /right/j2
-    - /right/j3
-    - /right/j4
-    - /right/j5
-    - /right/j6
-    - /right/j7
-  gains:
-    right/j1: *j1_gains
-    right/j2: *j2_gains
-    right/j3: *j3_gains
-    right/j4: *j4_gains
-    right/j5: *j5_gains
-    right/j6: *j6_gains
-    right/j7: *j7_gains
+  joints: *right_joints
+  gains: *right_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
@@ -104,22 +76,8 @@ right_trajectory_controller:
 
 left_trajectory_controller:
   type: effort_controllers/JointTrajectoryController
-  joints:
-    - /left/j1
-    - /left/j2
-    - /left/j3
-    - /left/j4
-    - /left/j5
-    - /left/j6
-    - /left/j7
-  gains:
-    left/j1: *j1_gains
-    left/j2: *j2_gains
-    left/j3: *j3_gains
-    left/j4: *j4_gains
-    left/j5: *j5_gains
-    left/j6: *j6_gains
-    left/j7: *j7_gains
+  joints: *left_joints
+  gains: *left_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
@@ -151,20 +109,8 @@ bimanual_trajectory_controller:
     - /right/j6
     - /right/j7
   gains:
-    left/j1:  *j1_gains
-    left/j2:  *j2_gains
-    left/j3:  *j3_gains
-    left/j4:  *j4_gains
-    left/j5:  *j5_gains
-    left/j6:  *j6_gains
-    left/j7:  *j7_gains
-    right/j1: *j1_gains
-    right/j2: *j2_gains
-    right/j3: *j3_gains
-    right/j4: *j4_gains
-    right/j5: *j5_gains
-    right/j6: *j6_gains
-    right/j7: *j7_gains
+    <<: *left_gains
+    <<: *right_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
