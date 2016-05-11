@@ -2,8 +2,8 @@
 Changelog for package herb_launch
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.0 (2016-05-11)
+------------------
 * Migrated to ros_control for HERB's WAMs and BarrettHands.
 * Disabled control of the head.
 * Contributors: Clint Liddick, Michael Koval
