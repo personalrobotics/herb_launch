@@ -1,0 +1,158 @@
+# Publish all joint states -----------------------------------------------------
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+
+
+# Position Controllers ---------------------------------------------------------
+right_joint_group_position_controller:
+  type: rewd_controllers/JointGroupPositionController
+  joints: &right_joints
+    - /right/j1
+    - /right/j2
+    - /right/j3
+    - /right/j4
+    - /right/j5
+    - /right/j6
+    - /right/j7
+  gains: &right_gains
+    # create references to gain data which is reused in other controllers
+    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+
+left_joint_group_position_controller:
+  type: rewd_controllers/JointGroupPositionController
+  joints: &left_joints
+    - /left/j1
+    - /left/j2
+    - /left/j3
+    - /left/j4
+    - /left/j5
+    - /left/j6
+    - /left/j7
+  gains: &left_gains
+    left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+
+
+# Gravity Compensation Controllers ---------------------------------------------
+right_gravity_compensation_controller:
+  type: rewd_controllers/GravityCompensationController
+  joints: *right_joints
+
+left_gravity_compensation_controller:
+  type: rewd_controllers/GravityCompensationController
+  joints: *left_joints
+
+
+# Trajectory controllers -------------------------------------------------------
+right_trajectory_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints: *right_joints
+  gains: *right_gains
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    # create reference to joint constraints that are reused for other joints
+    right/j1: &joint_traj_constraints {trajectory: 0.05, goal: 0.02}
+    right/j2: *joint_traj_constraints
+    right/j3: *joint_traj_constraints
+    right/j4: *joint_traj_constraints
+    right/j5: *joint_traj_constraints
+    right/j6: *joint_traj_constraints
+    right/j7: *joint_traj_constraints
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+
+left_trajectory_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints: *left_joints
+  gains: *left_gains
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    left/j1: *joint_traj_constraints
+    left/j2: *joint_traj_constraints
+    left/j3: *joint_traj_constraints
+    left/j4: *joint_traj_constraints
+    left/j5: *joint_traj_constraints
+    left/j6: *joint_traj_constraints
+    left/j7: *joint_traj_constraints
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+
+bimanual_trajectory_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - /left/j1
+    - /left/j2
+    - /left/j3
+    - /left/j4
+    - /left/j5
+    - /left/j6
+    - /left/j7
+    - /right/j1
+    - /right/j2
+    - /right/j3
+    - /right/j4
+    - /right/j5
+    - /right/j6
+    - /right/j7
+  gains:
+    <<: *left_gains
+    <<: *right_gains
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    left/j1:  *joint_traj_constraints
+    left/j2:  *joint_traj_constraints
+    left/j3:  *joint_traj_constraints
+    left/j4:  *joint_traj_constraints
+    left/j5:  *joint_traj_constraints
+    left/j6:  *joint_traj_constraints
+    left/j7:  *joint_traj_constraints
+    right/j1: *joint_traj_constraints
+    right/j2: *joint_traj_constraints
+    right/j3: *joint_traj_constraints
+    right/j4: *joint_traj_constraints
+    right/j5: *joint_traj_constraints
+    right/j6: *joint_traj_constraints
+    right/j7: *joint_traj_constraints
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+
+
+# Hand controllers -------------------------------------------------------------
+right_hand_controller:
+  type: position_command_controller/PositionCommandController
+  resource_name: /right
+
+left_hand_controller:
+  type: position_command_controller/PositionCommandController
+  resource_name: /left
+
+
+# Force/Torque Sensor Controller -----------------------------------------------
+force_torque_sensor_controller:
+  type: force_torque_sensor_controller/ForceTorqueSensorController
+  publish_rate: 50
+  
+
+# Tare controllers -------------------------------------------------------------
+right_tare_controller:
+  type: trigger_controller/TriggerController
+  resource_name: /right/ft_tare
+
+left_tare_controller:
+  type: trigger_controller/TriggerController
+  resource_name: /left/ft_tare
