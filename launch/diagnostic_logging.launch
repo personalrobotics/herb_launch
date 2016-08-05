@@ -1,0 +1,6 @@
+<launch>
+    <node name="diagnostic_logging"
+          pkg="rosbag"
+          type="record"
+          args="--split --size=1 -o /home/herb_home/logs/diagnostics -j -q /diagnostics" />
+</launch>
