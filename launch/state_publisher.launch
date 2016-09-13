@@ -1,8 +1,8 @@
 <launch>
     <param name="robot_description"
-           textfile="$(find herb_description)/robots/herb.urdf"/>
+           textfile="$(find herb_description)/robots/herb_no_left_bh280_right.urdf"/>
     <param name="semantic_robot_description"
-           textfile="$(find herb_description)/robots/herb.srdf"/>
+           textfile="$(find herb_description)/robots/herb_no_left_bh280_right.srdf"/>
 
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher"/>
 
