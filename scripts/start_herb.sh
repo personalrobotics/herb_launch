@@ -32,3 +32,4 @@ pr_launcher "segway"       "segway.launch"
 pr_launcher "localization" "localization.launch"
 pr_launcher "navigation"   "navigation.launch"
 pr_launcher "talker"       "talker.launch"
+ssh prdemo@herb2 ./shared/ros_ws/src/herb_launch/scripts/start_herb2.sh
