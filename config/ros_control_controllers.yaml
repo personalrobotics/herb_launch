@@ -57,7 +57,7 @@ left_gravity_compensation_controller:
 
 # Trajectory controllers -------------------------------------------------------
 right_trajectory_controller:
-  type: effort_controllers/JointTrajectoryController
+  type: rewd_controllers/JointTrajectoryController
   joints: *right_joints
   gains: *right_gains
   constraints: # TODO what are these values?
@@ -75,7 +75,7 @@ right_trajectory_controller:
   state_publish_rate: 25
 
 left_trajectory_controller:
-  type: effort_controllers/JointTrajectoryController
+  type: rewd_controllers/JointTrajectoryController
   joints: *left_joints
   gains: *left_gains
   constraints: # TODO what are these values?
@@ -92,7 +92,7 @@ left_trajectory_controller:
   state_publish_rate: 25
 
 bimanual_trajectory_controller:
-  type: effort_controllers/JointTrajectoryController
+  type: rewd_controllers/JointTrajectoryController
   joints:
     - /left/j1
     - /left/j2
