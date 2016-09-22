@@ -131,6 +131,47 @@ bimanual_trajectory_controller:
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
 
+# MoveUntilTouch controllers -------------------------------------------------------
+right_move_until_touch_controller:
+  type: rewd_controllers/MoveUntilTouchController
+  joints: *right_joints
+  gains: *right_gains
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    # create reference to joint constraints that are reused for other joints
+    right/j1: *joint_traj_constraints
+    right/j2: *joint_traj_constraints
+    right/j3: *joint_traj_constraints
+    right/j4: *joint_traj_constraints
+    right/j5: *joint_traj_constraints
+    right/j6: *joint_traj_constraints
+    right/j7: *joint_traj_constraints
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+  forcetorque_name: /right/force_torque
+  sensor_force_limit: 80  # actually [80, 80, 135]
+  sensor_torque_limit: 2.75
+
+left_move_until_touch_controller:
+  type: rewd_controllers/MoveUntilTouchController
+  joints: *left_joints
+  gains: *left_gains
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    left/j1: *joint_traj_constraints
+    left/j2: *joint_traj_constraints
+    left/j3: *joint_traj_constraints
+    left/j4: *joint_traj_constraints
+    left/j5: *joint_traj_constraints
+    left/j6: *joint_traj_constraints
+    left/j7: *joint_traj_constraints
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+  forcetorque_name: /left/force_torque
+  sensor_force_limit: 80  # actually [80, 80, 135]
+  sensor_torque_limit: 2.75
 
 # Hand controllers -------------------------------------------------------------
 right_hand_controller:
