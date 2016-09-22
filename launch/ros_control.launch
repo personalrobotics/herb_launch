@@ -24,7 +24,22 @@
   <node name="ros_control_manager"
         pkg="controller_manager"
         type="spawner"
-        args="--stopped --timeout 300 joint_state_controller force_torque_sensor_controller right_hand_controller right_tare_controller left_hand_controller left_tare_controller right_gravity_compensation_controller left_gravity_compensation_controller right_joint_group_position_controller left_joint_group_position_controller right_trajectory_controller left_trajectory_controller bimanual_trajectory_controller"
+        args="--stopped --timeout 300 --shutdown-timeout 1
+              joint_state_controller
+              force_torque_sensor_controller
+              right_hand_controller
+              right_tare_controller
+              right_trajectory_controller
+              right_gravity_compensation_controller
+              right_joint_group_position_controller
+              right_move_until_touch_controller
+              left_hand_controller
+              left_tare_controller
+              left_trajectory_controller
+              left_gravity_compensation_controller
+              left_joint_group_position_controller
+              left_move_until_touch_controller
+              bimanual_trajectory_controller"
         output="screen" />
 
 </launch>
