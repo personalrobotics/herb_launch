@@ -149,7 +149,8 @@ right_move_until_touch_controller:
     right/j7: *joint_traj_constraints
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
-  forcetorque_name: /right/force_torque
+  forcetorque_wrench_name: /right/ft_wrench
+  forcetorque_tare_name: /right/ft_tare
   sensor_force_limit: 80  # actually [80, 80, 135]
   sensor_torque_limit: 2.75
 
@@ -169,7 +170,8 @@ left_move_until_touch_controller:
     left/j7: *joint_traj_constraints
   stop_trajectory_duration: 0.5
   state_publish_rate: 25
-  forcetorque_name: /left/force_torque
+  forcetorque_wrench_name: /left/ft_wrench
+  forcetorque_tare_name: /left/ft_tare
   sensor_force_limit: 80  # actually [80, 80, 135]
   sensor_torque_limit: 2.75
 
