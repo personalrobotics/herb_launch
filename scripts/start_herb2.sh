@@ -1,6 +1,5 @@
 #!/bin/bash
-# Start HERB functionality in screen sessions
-# Mike Dawson-Haggerty 10/8/2014
+# Start HERB2 functionality in screen sessions
 # to kill all sessions: killall -15 screen
 
 function herb2_launcher {
