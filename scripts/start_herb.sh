@@ -8,7 +8,7 @@ function launcher {
         echo "WARNING! $1 is already running!"
     else
         screen -d -S $1 -m bash
-        screen -S $1 -p 0 -X stuff "source /home/herb_home/shared/herb0_ws/devel/setup.bash; $2$(printf \\r)"
+        screen -S $1 -p 0 -X stuff "source /home/herb_home/shared/herb0_ws/devel/setup.bash && $2$(printf \\r)"
     fi
 }
 
