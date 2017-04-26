@@ -1,31 +1,48 @@
 <launch>
-  <node pkg="libbarrett_ros" type="controller" name="controller" output="screen">
+  <node pkg="libbarrett_ros"
+        type="controller"
+        name="controller"
+        output="screen">
+        <!-- launch-prefix="strace -x -tt -o /tmp/strace_roscontrol" -->
 
     <rosparam command="load"
               file="$(find herb_launch)/config/ros_control.yaml"/>
 
     <param name="buses/right_arm/configuration_path" type="str"
-           value="$(find herb_launch)/libbarrett_config/right_arm/default.conf"/>
+           value="/home/herb_home/barrett-rs/config/right.json"/>
 
-    <param name="buses/left_arm/configuration_path" type="str"
-           value="$(find herb_launch)/libbarrett_config/left_arm/default.conf"/>
+    <!-- <param name="buses/left_arm/configuration_path" type="str" -->
+    <!--        value="/home/herb_home/barrett-rs/config/left.json"/> -->
 
     <rosparam command="load" ns="buses/right_arm/schedule"
               file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
 
-    <rosparam command="load" ns="buses/left_arm/schedule"
-              file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
+    <!-- <rosparam command="load" ns="buses/left_arm/schedule" -->
+    <!--           file="$(find herb_launch)/config/ros_control_schedule.yaml"/> -->
   </node>
 
   <rosparam command="load"
             file="$(find herb_launch)/config/ros_control_controllers.yaml"/>
 
   <!-- TODO timeout? -->
-  <node name="ros_control_manager"
-        pkg="controller_manager"
-        type="spawner"
-        args="--stopped --timeout 300 joint_state_controller force_torque_sensor_controller right_hand_controller right_tare_controller left_hand_controller left_tare_controller right_gravity_compensation_controller left_gravity_compensation_controller right_joint_group_position_controller left_joint_group_position_controller right_trajectory_controller left_trajectory_controller bimanual_trajectory_controller"
-        output="screen" />
+  <!-- <node name="ros_control_manager" -->
+  <!--       pkg="controller_manager" -->
+  <!--       type="spawner" -->
+  <!--       args="-\-stopped -\-timeout 300  -->
+  <!--             joint_state_controller  -->
+  <!--             force_torque_sensor_controller  -->
+  <!--             left_tare_controller  -->
+  <!--             left_gravity_compensation_controller  -->
+  <!--             left_joint_group_position_controller  -->
+  <!--             left_trajectory_controller" -->
+  <!--       output="screen" /> -->
 
+              <!-- bimanual_trajectory_controller" -->
+              <!-- left_hand_controller  -->
+              <!-- right_hand_controller  -->
+              <!-- right_tare_controller  -->
+              <!-- right_gravity_compensation_controller  -->
+              <!-- right_joint_group_position_controller  -->
+              <!-- right_trajectory_controller  -->
 </launch>
 <!-- set ft=xml: -->
