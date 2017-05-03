@@ -1,46 +1,46 @@
 realtime: false
 buses:
-  right_arm:
-    wam_joint_names:
-    - /right/j1
-    - /right/j2
-    - /right/j3
-    - /right/j4
-    - /right/j5
-    - /right/j6
-    - /right/j7
-    hand_name: /right
-    hand_finger_joint_names:
-    - [ /right/j01, /right/j02 ]
-    - [ /right/j11, /right/j12 ]
-    - [ /right/j21, /right/j22 ]
-    hand_spread_joint_names:
-    - /right/j00
-    - /right/j01
-    forcetorque_frame_id: /right/wam7
-    forcetorque_wrench_name: /right/ft_wrench
-    forcetorque_tare_name: /right/ft_tare
-    forcetorque_accel_name: /right/ft_accel
-    # The "configuration_path" and "schedule" params are set in the launchfile.
-  left_arm:
-    wam_joint_names:
-    - /left/j1
-    - /left/j2
-    - /left/j3
-    - /left/j4
-    - /left/j5
-    - /left/j6
-    - /left/j7
-    hand_name: /left
-    hand_finger_joint_names:
-    - [ /left/j01, /left/j02 ]
-    - [ /left/j11, /left/j12 ]
-    - [ /left/j21, /left/j22 ]
-    hand_spread_joint_names:
-    - /left/j00
-    - /left/j01
-    forcetorque_frame_id: /left/wam7
-    forcetorque_wrench_name: /left/ft_wrench
-    forcetorque_tare_name: /left/ft_tare
-    forcetorque_accel_name: /left/ft_accel
-    # The "configuration_path" and "schedule" params are set in the launchfile.
+ right_arm:
+   wam_joint_names:
+   - /right/j1
+   - /right/j2
+   - /right/j3
+   - /right/j4
+   - /right/j5
+   - /right/j6
+   - /right/j7
+   # hand_name: /right
+   # hand_finger_joint_names:
+   # - [ /right/j01, /right/j02 ]
+   # - [ /right/j11, /right/j12 ]
+   # - [ /right/j21, /right/j22 ]
+   # hand_spread_joint_names:
+   # - /right/j00
+   # - /right/j01
+   # forcetorque_frame_id: /right/wam7
+   # forcetorque_wrench_name: /right/ft_wrench
+   # forcetorque_tare_name: /right/ft_tare
+   # forcetorque_accel_name: /right/ft_accel
+   # The "configuration_path" and "schedule" params are set in the launchfile.
+  # left_arm:
+  #   wam_joint_names:
+  #   - /left/j1
+  #   - /left/j2
+  #   - /left/j3
+  #   - /left/j4
+  #   - /left/j5
+  #   - /left/j6
+  #   - /left/j7
+# #    hand_name: /left
+# #    hand_finger_joint_names:
+# #    - [ /left/j01, /left/j02 ]
+# #    - [ /left/j11, /left/j12 ]
+# #    - [ /left/j21, /left/j22 ]
+# #    hand_spread_joint_names:
+# #    - /left/j00
+# #    - /left/j01
+#     forcetorque_frame_id: /left/wam7
+#     forcetorque_wrench_name: /left/ft_wrench
+#     forcetorque_tare_name: /left/ft_tare
+#     forcetorque_accel_name: /left/ft_accel
+#     # The "configuration_path" and "schedule" params are set in the launchfile.

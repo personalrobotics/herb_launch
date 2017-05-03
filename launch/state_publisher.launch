@@ -11,9 +11,9 @@
   <!-- Load default HERB model -->
   <group unless="$(arg configure_hands)">
     <param name="robot_description"
-           textfile="$(find herb_description)/robots/herb.urdf"/>
+           textfile="/home/herb_home/ros_ws/devel/share/herb_description/robots/herb.urdf"/>
     <param name="semantic_robot_description"
-           textfile="$(find herb_description)/robots/herb.srdf"/>
+           textfile="/home/herb_home/ros_ws/devel/share/herb_description/robots/herb.srdf"/>
   </group>
 
   <!-- OR -->
@@ -21,9 +21,9 @@
   <!-- Load HERB models with custom hand options -->
   <group if="$(arg configure_hands)">
     <param name="robot_description"
-           textfile="$(find herb_description)/robots/herb_$(arg left_hand)_left_$(arg right_hand)_right.urdf"/>
+           textfile="/home/herb_home/ros_ws/devel/share/herb_description/robots/herb_$(arg left_hand)_left_$(arg right_hand)_right.urdf"/>
     <param name="semantic_robot_description"
-           textfile="$(find herb_description)/robots/herb_$(arg left_hand)_left_$(arg right_hand)_right.srdf"/>
+           textfile="/home/herb_home/ros_ws/devel/share/herb_description/robots/herb_$(arg left_hand)_left_$(arg right_hand)_right.srdf"/>
   </group>
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher"/>
