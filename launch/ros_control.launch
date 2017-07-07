@@ -26,9 +26,10 @@
         type="spawner"
         args="--stopped --timeout 300 
 	joint_state_controller
-  right_gravity_compensation_controller
-  right_trajectory_controller
-  "
+	right_gravity_compensation_controller
+	right_trajectory_controller
+	right_hand_controller
+	"
 	output="screen" />
 
 </launch>
