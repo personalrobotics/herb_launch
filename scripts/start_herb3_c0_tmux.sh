@@ -1,6 +1,8 @@
 #!/bin/bash
 # Start HERB functionality in screen sessions
-# to kill all sessions: pkill -f tmux 
+# to kill all sessions:      pkill -f tmux
+# to attach to a session:    tmux a -t <session_name>
+# to detach from a session:  <ctrl + b> + d
 
 function launcher {
     tmux has-session -t $1 2>/dev/null
