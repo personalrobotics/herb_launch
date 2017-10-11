@@ -3,7 +3,7 @@
     
     <rosparam command="load" file="$(find herb_launch)/config/apriltags.yaml"/>
     
-    <remap from="~image" to="/multisense/left/image_rect"/>
+    <remap from="~image" to="/multisense/left/image_rect_color"/>
     <remap from="~camera_info" to="/multisense/left/image_rect/camera_info"/>
     
   </node>
