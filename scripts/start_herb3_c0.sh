@@ -4,8 +4,11 @@
 # to kill all sessions: killall -15 screen
 
 function launcher {
-    if screen -ls | grep -q $1; then
-        echo "WARNING! $1 is already running!"
+    tmux has-session -t $1 2>/dev/null
+    if [ "$?" -eq 0 ] ; then
+        echo "WARNING! $1 is already running! (tmux session)"
+    elif screen -ls | grep -q $1 ; then
+        echo "WARNING! $1 is already running! (screen session)"
     else
         screen -d -S $1 -m bash
         screen -S $1 -p 0 -X stuff "source /home/herb_home/ros_ws/devel/setup.bash && $2$(printf \\r)"

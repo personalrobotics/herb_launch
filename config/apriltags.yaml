@@ -1,4 +1,5 @@
-tf_frame: '/head/kinect2_rgb_optical_frame'
+#tf_frame: '/head/kinect2_rgb_optical_frame'
+tf_frame: '/multisense/left_camera_optical_frame'
 default_tag_size: 0.048
 
 # If some tags have a different size, you can change them like this:
