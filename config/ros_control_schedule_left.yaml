@@ -1,0 +1,18 @@
+- 
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
+  - { name: ft_acceleration }
+  - { name: ft_tare }
+-
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
+  - { name: ft_tare }
+-
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
+  - { name: ft_wrench }
+  - { name: ft_tare }
+-
+  - { name: wam_position, required: true }
+  - { name: wam_torque, required: true }
+  - { name: ft_tare }
