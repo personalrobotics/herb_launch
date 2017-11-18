@@ -11,7 +11,7 @@
 
   <!-- Robot state publisher -->
   <group if = "$(arg launch_robot_state_publisher)">
-    <param name="robot_description"
+    <param name="multisense_description"
           command="$(find xacro)/xacro.py '$(find multisense_description)/urdf/multisense$(arg sensor)/standalone.urdf.xacro' name:=$(arg namespace)"/>
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="multisense_state_publisher">
       <param name="publish_frequency" type="double" value="20.0" />
