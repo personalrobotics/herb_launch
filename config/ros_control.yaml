@@ -1,4 +1,4 @@
-realtime: false
+realtime: true
 buses:
   right_arm:
     wam_joint_names:
@@ -16,7 +16,7 @@ buses:
     - [ /right/j21, /right/j22 ]
     hand_spread_joint_names:
     - /right/j00
-    - /right/j01
+    - /right/j01 # was briefly j10, but doesn't seem to matter?
     forcetorque_frame_id: /right/wam7
     forcetorque_wrench_name: /right/ft_wrench
     forcetorque_tare_name: /right/ft_tare
