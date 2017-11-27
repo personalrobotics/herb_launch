@@ -11,7 +11,7 @@ function launcher {
         echo "WARNING! $1 is already running! (screen session)"
     else
         screen -d -S $1 -m bash
-        screen -S $1 -p 0 -X stuff "source /home/herb_home/ros_ws/devel/setup.bash && $2$(printf \\r)"
+        screen -S $1 -p 0 -X stuff "source $(catkin locate)/devel/setup.bash && $2$(printf \\r)"
     fi
 }
 
@@ -22,6 +22,7 @@ function pr_launcher {
 launcher    "core"         "roscore"
 sleep 5s
 pr_launcher "state_pub"    "state_publisher.launch"
-pr_launcher "localization" "localization.launch"
+pr_launcher "ros_control"    "ros_control.launch"
+#pr_launcher "localization" "localization.launch"
 #pr_launcher "navigation"   "navigation.launch"
 #pr_launcher "static_map"   "static_map.launch"

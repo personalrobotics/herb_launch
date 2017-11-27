@@ -13,7 +13,7 @@ function launcher {
     else
         echo "Creating a new tmux session: $1"
 	tmux new-session -d -s $1
-	tmux send -t $1 "source /home/herb_admin/herb2_ws/devel/setup.bash && $2$(printf \\r)"
+	tmux send -t $1 "source $(catkin locate)/devel/setup.bash && $2$(printf \\r)"
     fi
 }
 

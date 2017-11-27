@@ -10,7 +10,7 @@ function herb2_launcher {
         echo "WARNING! $1 is already running! (screen session)"
     else
         screen -d -S $1 -m bash
-        screen -S $1 -p 0 -X stuff "source /home/herb_admin/herb2_ws/devel/setup.bash; $2$(printf \\r)"
+        screen -S $1 -p 0 -X stuff "source $(catkin locate)/devel/setup.bash; $2$(printf \\r)"
     fi
 }
 
