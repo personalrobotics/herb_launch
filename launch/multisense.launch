@@ -2,7 +2,6 @@
 
   <!-- Valid Sensor types are SL, S7, S7S, S21, and BCAM -->
 
-  <!-- original ip address: 10.66.171.21 -->
   <arg name="ip_address" default="10.66.171.21" />
   <arg name="namespace"  default="multisense" />
   <arg name="mtu"        default="7200" />

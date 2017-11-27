@@ -1,7 +1,7 @@
 <launch>        
   <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
     
-    <rosparam command="load" file="$(find herb_launch)/config/apriltags.yaml"/>
+    <rosparam command="load" file="$(find herb_launch)/config/apriltags_kinect.yaml"/>
     
     <remap from="~image" to="/head/kinect2/qhd/image_color"/>
     <remap from="~camera_info" to="/head/kinect2/qhd/camera_info"/>

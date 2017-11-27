@@ -1,5 +1,5 @@
 #!/bin/bash
-# Start HERB functionality in screen sessions
+# Start HERB functionalities in tmux sessions
 # to kill all sessions: pkill -f tmux
 
 function launcher {
