@@ -21,8 +21,8 @@ function pr_herb2_launcher {
     launcher $1 "roslaunch herb_launch $2 --wait"
 }
 
-source /home/herb_admin/herb2_ws/devel/setup.bash
-export ROS_MASTER_URI=http://herbx:11311
+source $(catkin locate)/devel/setup.bash
+export ROS_MASTER_URI=http://herb0:11311
 
 export PYTHONPATH=$PYTHONPATH:/home/herb_admin/tensorflow_models/research:/home/herb_admin/tensorflow_models/research/slim
 

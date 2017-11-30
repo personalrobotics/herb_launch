@@ -27,7 +27,7 @@ function neck_can_reset {
     sudo ip link set up can0 type can bitrate 500000 triple-sampling on
 }
 
-export ROS_MASTER_URI=http://herbx:11311/
+export ROS_MASTER_URI=http://herb0:11311/
 
 export PYTHONPATH=$PYTHONPATH:/home/herb_admin/tensorflow_models/research:/home/herb_admin/tensorflow_models/research/slim
 
