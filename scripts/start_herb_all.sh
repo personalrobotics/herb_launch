@@ -24,6 +24,7 @@ function pr_launcher {
 launcher    "core"          "roscore"
 sleep 5s
 pr_launcher "ros_control"   "ros_control.launch"
+pr_launcher "talker"        "talker.launch"
 
 echo "-- initiating herb2 -------"
 ssh -t herb_admin@herb2 /home/herb_admin/herb2_ws/src/herb_launch/scripts/start_herb2_tmux.sh
