@@ -16,7 +16,7 @@ function pr_launcher {
     launcher $1 "roslaunch herb_launch $2 --wait"
 }
 
-if [ $(hostname) != 'herb0.personalrobotics.ri.cmu.edu' ]
+if [ $(hostname) != 'herb0' ]
 then
     echo 'ERROR: HERB must be launched from herb0'
     exit

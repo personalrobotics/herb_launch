@@ -4,9 +4,9 @@
   <arg name="configure_hands" default="false"
        doc="Boolean flag of whether to use non-default hand options"/>
   <arg name="left_hand" default="bh280"
-       doc="Which left hand option to use. Options: 'bh280', 'no'"/>
-  <arg name="right_hand" default="bh280"
-       doc="Which right hand option to use. Options: 'bh280', 'no'"/>
+       doc="Which left hand option to use. Options: 'bh280', 'bh282', 'no'"/>
+  <arg name="right_hand" default="bh282"
+       doc="Which right hand option to use. Options: 'bh280', 'bh282', 'no'"/>
 
   <!-- Load default HERB model -->
   <group unless="$(arg configure_hands)">
@@ -28,5 +28,4 @@
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher"/>
 
-  <node pkg="herb_launch" type="segway_joint_relay.py" name="relay" ns="segway"/>
 </launch>

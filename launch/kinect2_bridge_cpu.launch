@@ -9,9 +9,9 @@
   <arg name="use_png"           default="false"/>
   <arg name="jpeg_quality"      default="90"/>
   <arg name="png_level"         default="1"/>
-  <arg name="depth_method"      default="default"/>
+  <arg name="depth_method"      default="cpu"/>
   <arg name="depth_device"      default="-1"/>
-  <arg name="reg_method"        default="default"/>
+  <arg name="reg_method"        default="cpu"/>
   <arg name="reg_devive"        default="-1"/>
   <arg name="max_depth"         default="12.0"/>
   <arg name="min_depth"         default="0.1"/>
@@ -81,5 +81,5 @@
     <remap from="depth_registered/image_rect" to="head/$(arg base_name)/hd/image_depth_rect" />
     <remap from="depth_registered/points"     to="head/$(arg base_name)/hd/points" />
     <param name="queue_size" type="int" value="5" />
-  </node>
+  </node> 
 </launch>
