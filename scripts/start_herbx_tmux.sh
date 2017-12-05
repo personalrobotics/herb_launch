@@ -23,4 +23,4 @@ launcher    "core"         "roscore"
 sleep 5s
 pr_launcher "state_pub"    "state_publisher.launch"
 pr_launcher "ros_control"  "ros_control.launch"
-#pr_launcher "localization" "localization.launch"
+

@@ -23,6 +23,4 @@ launcher    "core"         "roscore"
 sleep 5s
 pr_launcher "state_pub"    "state_publisher.launch"
 pr_launcher "ros_control"    "ros_control.launch"
-#pr_launcher "localization" "localization.launch"
-#pr_launcher "navigation"   "navigation.launch"
-#pr_launcher "static_map"   "static_map.launch"
+
