@@ -23,5 +23,7 @@ function pr_launcher {
 
 export ROS_MASTER_URI=http://herb2:11311/
 
+cd /home/herb_admin/herb0_ws/
+
 pr_launcher "ros_control"  "ros_control.launch"
 
