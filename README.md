@@ -4,29 +4,28 @@ Launch files and scripts for HERB.
 
 ## Using start scripts
 
-### HERB0
+### HERB2
 
-In order to load all ROS nodes for demo, on `HERB0`, run
+In order to load all ROS nodes for demo, on `HERB2`, run
 ```
 scripts/start_herb_all.sh
 ```
-This script will start all ROS nodes on herb machines. (Four tmux sessions on `herb0`: `roscore`, `ros_control`, `talker`, and `state_publisher`. Five tmux sessions on `herb2`: `multisense`, `apriltags`, `rcnn_moped`, `schunk_neck`, and `neck_simple`.)
+This script will start all ROS nodes on herb machines. (tmux sessions on `herb2`: `roscore`, `multisense`, `apriltags`, `rcnn_moped`, `schunk_neck`, `talker`, and `state_publisher`. tmux sessions on `herb0`: `ros_control`)
 
-If you want to start `HERB0` only, run
-```
-scripts/start_herb0_tmux.sh
-```
-This script will load `roscore`, `ros_control`, and `state_publisher` in tmux sessions.
-
-### HERB2
-
-> If you successfully run `start_herb_all.sh` script, all ROS nodes on `herb2` should be loaded. Check tmux sessions with `tmux ls` before running the start script on `herb2`.
-
-On `HERB2`, run
+If you want to start `HERB2` only, run
 ```
 scripts/start_herb2_tmux.sh
 ```
-This script will load `multisense`, `apriltags`, `rcnn_moped`, `schunk_neck`, and `neck_simple` in tmux sessions.
+
+### HERB0
+
+> If you successfully run `start_herb_all.sh` script, `ros_control` on `herb0` should be loaded. Check tmux sessions with `tmux ls` before running the start script on `herb0`.
+
+On `HERB0`, run
+```
+scripts/start_herb0_tmux.sh
+```
+This script will load `ros_control` in tmux sessions.
 
 
 ## Load launch files separately
