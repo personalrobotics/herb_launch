@@ -24,4 +24,4 @@ export PYTHONPATH=$PYTHONPATH:/home/herb_admin/tensorflow_models/research:/home/
 #pr_herb2_launcher "kinect2"       "kinect2_bridge_cpu.launch"
 pr_herb2_launcher "multisense"    "multisense.launch"
 pr_herb2_launcher "apriltags"	  "apriltags_multisense.launch"
-pr_herb2_launcher "rcnn_moped"    "rcnn_moped.launch"
+pr_herb2_launcher "rcnn_pose"     "rcnn_pose.launch"

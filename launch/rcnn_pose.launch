@@ -1,6 +1,6 @@
 <launch>
-  <!-- https://github.com/personalrobotics/rcnn_moped -->
-  <node pkg="rcnn_moped" type="rcnn_moped.py" name="rcnn_moped" output="screen">
+  <!-- https://github.com/personalrobotics/rcnn_pose -->
+  <node pkg="rcnn_pose" type="rcnn_projection.py" name="rcnn_pose" output="screen">
     
     <remap from="~image" to="/multisense/left/image_rect_color/compressed"/>
     <remap from="~camera_info" to="/multisense/left/image_rect/camera_info"/>
