@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rosrun talker say.py "gravity compensation, left, and right"
+rosrun talker say.py "Gravity compensation: left and right"
 rosrun talker say.py "3"
 rosrun talker say.py "2"
 rosrun talker say.py "1"
