@@ -1,0 +1,10 @@
+<launch>
+  <!-- https://github.com/personalrobotics/deep_pose_estimators -->
+  <node pkg="deep_pose_estimators" type="rcnn_projection.py" name="pose_estimator" output="screen">
+    <param name="config_filename" value="herb.json" />
+
+    <remap from="~image" to="/multisense/left/image_rect_color/compressed"/>
+    <remap from="~camera_info" to="/multisense/left/image_rect/camera_info"/>
+    
+  </node>
+</launch>
