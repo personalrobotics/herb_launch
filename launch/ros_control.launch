@@ -38,6 +38,7 @@
         left_joint_group_position_controller
         left_trajectory_controller
         bimanual_trajectory_controller
+        neck_controller
         "
         output="screen" />
 
