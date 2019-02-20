@@ -1,10 +1,10 @@
-<launch>        
+<launch>
   <node pkg="apriltags" type="apriltags" name="apriltags" output="screen">
-    
+
     <rosparam command="load" file="$(find herb_launch)/config/apriltags_multisense.yaml"/>
-    
-    <remap from="~image" to="/multisense/left/image_rect_color"/>
+
+    <remap from="~image" to="/multisense/left/image_rect"/>
     <remap from="~camera_info" to="/multisense/left/image_rect/camera_info"/>
-    
+
   </node>
 </launch>

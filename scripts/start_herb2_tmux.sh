@@ -17,7 +17,7 @@ function launcher {
     fi
 }
 
-function pr_herb2_launcher {
+function pr_ros_launcher {
     launcher $1 "roslaunch herb_launch $2 --wait"
 }
 
@@ -25,9 +25,8 @@ function neck_can_reset {
     echo "reset can0 for schunk_neck"
     sudo ifconfig can0 down
     sudo ip link set up can0 type can bitrate 500000 triple-sampling on
+    cansend can0 50E#01.92
 }
-
-export ROS_MASTER_URI=http://herb0:11311/
 
 export PYTHONPATH=$PYTHONPATH:/home/herb_admin/tensorflow_models/research:/home/herb_admin/tensorflow_models/research/slim
 
@@ -36,19 +35,26 @@ source $(catkin locate)/devel/setup.bash
 
 neck_can_reset
 
-#pr_herb2_launcher "kinect2"       "kinect2_bridge_cpu.launch"
-pr_herb2_launcher "multisense"    "multisense.launch"
-pr_herb2_launcher "apriltags"	  "apriltags_multisense.launch"
-pr_herb2_launcher "rcnn_moped"    "rcnn_moped.launch"
-launcher          "schunk_neck"   "rosrun schunk_neck schunk_neck_node"
-launcher          "image_echo"    "rostopic hz /multisense/left/image_rect_color"
-launcher          "lidar_echo"    "rostopic hz /multisense/lidar_points2"
+launcher          "core"         "roscore"
+sleep 5s
 
-sleep 3s
+#pr_herb2_launcher "kinect2"       "kinect2_bridge_cpu.launch"
+pr_ros_launcher "multisense"    "multisense.launch"
+#pr_ros_launcher "apriltags"	    "apriltags_multisense.launch"
+pr_ros_launcher "obj_detector"  "pose_estimator.launch"
+launcher        "schunk_neck"   "rosrun schunk_neck schunk_neck_node"
+#pr_ros_launcher "talker"        "talker.launch"
+
+launcher        "image_echo"    "rostopic hz /multisense/left/image_rect_color"
+launcher        "lidar_echo"    "rostopic hz /multisense/lidar_points2"
+
+sleep 2s
 rosrun dynamic_reconfigure dynparam set multisense lighting true
 rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.04
 rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.01
 rosrun dynamic_reconfigure dynparam set multisense motor_speed 1.0
 rosservice call /schunk_neck/set_state -- 0 30
-sleep 2s
+
+pr_ros_launcher "state_pub"     "state_publisher.launch"
+sleep 1s
 

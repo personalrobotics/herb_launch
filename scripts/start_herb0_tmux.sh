@@ -21,8 +21,9 @@ function pr_launcher {
     launcher $1 "roslaunch herb_launch $2 --wait"
 }
 
-launcher    "core"         "roscore"
-sleep 5s
-pr_launcher "state_pub"    "state_publisher.launch"
+export ROS_MASTER_URI=http://herb2:11311/
+
+cd /home/herb_admin/herb0_ws/
+
 pr_launcher "ros_control"  "ros_control.launch"
-pr_launcher "talker"        "talker.launch"
+
