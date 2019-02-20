@@ -45,14 +45,15 @@ pr_ros_launcher "obj_detector"  "pose_estimator.launch"
 launcher        "schunk_neck"   "rosrun schunk_neck schunk_neck_node"
 pr_ros_launcher "talker"        "talker.launch"
 
-#launcher        "image_echo"    "rostopic hz /multisense/left/image_rect_color"
-launcher        "lidar_echo"    "rostopic hz /multisense/lidar_points2"
-
-sleep 2s
-rosrun dynamic_reconfigure dynparam set multisense lighting true
-rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.04
-rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.01
-rosrun dynamic_reconfigure dynparam set multisense motor_speed 1.0
+# TODO: fix Multisense
+# launcher        "image_echo"    "rostopic hz /multisense/left/image_rect_color"
+# launcher        "lidar_echo"    "rostopic hz /multisense/lidar_points2"
+#
+# sleep 2s
+# rosrun dynamic_reconfigure dynparam set multisense lighting true
+# rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.04
+# rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.01
+# rosrun dynamic_reconfigure dynparam set multisense motor_speed 1.0
 rosservice call /schunk_neck/set_state -- 0 30
 
 pr_ros_launcher "state_pub"     "state_publisher.launch"

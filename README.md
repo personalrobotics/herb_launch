@@ -10,7 +10,7 @@ In order to load all ROS nodes for demo, on `HERB2`, run
 ```
 scripts/start_herb_all.sh
 ```
-This script will start all ROS nodes on herb machines. (tmux sessions on `herb2`: `roscore`, `multisense`, `apriltags`, `rcnn_moped`, `schunk_neck`, `talker`, and `state_publisher`. tmux sessions on `herb0`: `ros_control`)
+This script will start all ROS nodes on herb machines. (tmux sessions on `herb2`: `roscore`, `multisense`, `apriltags`, `deep_pose_estimators`, `schunk_neck`, `talker`, and `state_publisher`. tmux sessions on `herb0`: `ros_control`)
 
 If you want to start `HERB2` only, run
 ```

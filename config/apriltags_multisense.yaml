@@ -1,5 +1,5 @@
 tf_frame: '/multisense/left_camera_optical_frame'
-default_tag_size: 0.048
+default_tag_size: 0.052
 
 # If some tags have a different size, you can change them like this:
 #tag_data:
