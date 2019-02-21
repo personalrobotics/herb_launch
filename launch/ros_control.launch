@@ -11,7 +11,7 @@
            value="$(find herb_launch)/libbarrett_config/left_arm/default.conf"/>
 
     <rosparam command="load" ns="buses/right_arm/schedule"
-              file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
+              file="$(find herb_launch)/config/ros_control_schedule_right.yaml"/>
 
     <rosparam command="load" ns="buses/left_arm/schedule"
               file="$(find herb_launch)/config/ros_control_schedule.yaml"/>
