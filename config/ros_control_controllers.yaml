@@ -15,6 +15,7 @@ right_joint_group_position_controller:
     - /right/j5
     - /right/j6
     - /right/j7
+  control_type: effort
   gains: &right_gains
     # create references to gain data which is reused in other controllers
     right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
@@ -35,6 +36,7 @@ left_joint_group_position_controller:
     - /left/j5
     - /left/j6
     - /left/j7
+  control_type: effort
   gains: &left_gains
     left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
     left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
@@ -59,6 +61,7 @@ left_gravity_compensation_controller:
 right_trajectory_controller:
   type: rewd_controllers/JointTrajectoryController
   joints: *right_joints
+  control_type: effort
   gains: *right_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
@@ -77,6 +80,7 @@ right_trajectory_controller:
 left_trajectory_controller:
   type: rewd_controllers/JointTrajectoryController
   joints: *left_joints
+  control_type: effort
   gains: *left_gains
   constraints: # TODO what are these values?
     goal_time: 0.6
@@ -108,6 +112,7 @@ bimanual_trajectory_controller:
     - /right/j5
     - /right/j6
     - /right/j7
+  control_type: effort
   gains:
     <<: *left_gains
     <<: *right_gains
