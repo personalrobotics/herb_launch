@@ -16,7 +16,7 @@ buses:
     - [ /right/j21, /right/j22 ]
     hand_spread_joint_names:
     - /right/j00
-    - /right/j10 # was briefly j10, but doesn't seem to matter?
+    - /right/j10
     forcetorque_frame_id: /right/wam7
     forcetorque_wrench_name: /right/ft_wrench
     forcetorque_tare_name: /right/ft_tare
