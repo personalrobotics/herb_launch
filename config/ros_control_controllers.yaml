@@ -67,7 +67,7 @@ right_trajectory_controller:
     goal_time: 0.6
     stopped_velocity_tolerance: 0.02
     # create reference to joint constraints that are reused for other joints
-    right/j1: &joint_traj_constraints {trajectory: 0.05, goal: 0.03}
+    right/j1: &joint_traj_constraints {trajectory: 0.05, goal: 0.02}
     right/j2: *joint_traj_constraints
     right/j3: *joint_traj_constraints
     right/j4: *joint_traj_constraints
