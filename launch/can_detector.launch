@@ -1,0 +1,7 @@
+<launch>
+
+  <arg name="config_file" default="herb_conf.json" />
+  <node respawn="true" pkg="can_detector" type="run_perception_module.py" name="run_perception_module" output="screen" args="--config $(arg config_file)">
+  </node>
+
+</launch>
