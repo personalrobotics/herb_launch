@@ -42,7 +42,7 @@ sleep 5s
 pr_ros_launcher "multisense"    "multisense.launch"
 #pr_ros_launcher "apriltags"	    "apriltags_multisense.launch"
 pr_ros_launcher "obj_detector"  "pose_estimator.launch"
-launcher        "schunk_neck"   "rosrun schunk_neck schunk_neck_node"
+launcher        "schunk_neck"   "rosrun schunk_pw70_ros schunk_neck_node"
 #pr_ros_launcher "talker"        "talker.launch"
 
 launcher        "image_echo"    "rostopic hz /multisense/left/image_rect_color"
