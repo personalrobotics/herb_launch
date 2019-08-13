@@ -1,0 +1,18 @@
+<launch>
+  <!-- Load the controllers -->
+  <rosparam command="load"
+            file="$(find schunk_pw70_ros)/config/schunk_controllers.yaml"/>
+
+  <node name="schunk_pw70_ros" pkg="schunk_pw70_ros" type="schunk_robot" output="screen"/>
+
+  <!-- TODO timeout? -->
+  <node name="ros_control_manager"
+        pkg="controller_manager"
+        type="spawner"
+        args="--timeout 300
+        schunk_joint_state_controller
+        schunk_position_controller
+        "
+        output="screen" />
+
+</launch>
