@@ -1,7 +1,7 @@
 <launch>
   <!-- Load the controllers -->
   <rosparam command="load"
-            file="$(find schunk_pw70_ros)/config/schunk_controllers.yaml"/>
+            file="$(find herb_launch)/config/schunk_controllers.yaml"/>
 
   <node name="schunk_pw70_ros" pkg="schunk_pw70_ros" type="schunk_robot" output="screen"/>
 
