@@ -1,17 +1,16 @@
 <launch>
   <!-- Load the controllers -->
-  <rosparam command="load"
-            file="$(find herb_launch)/config/schunk_controllers.yaml"/>
+  <rosparam command="load" ns="schunk_robot/" file="$(find herb_launch)/config/schunk_controllers.yaml"/>
 
-  <node name="schunk_pw70_ros" pkg="schunk_pw70_ros" type="schunk_robot" output="screen"/>
+  <node name="schunk_pw70_ros" pkg="schunk_pw70_ros" type="schunk_robot" ns="schunk_robot/" output="screen"/>
 
   <!-- TODO timeout? -->
-  <node name="ros_control_manager"
+  <node name="schunk_ros_control_manager"
         pkg="controller_manager"
         type="spawner"
-        args="--timeout 300
-        schunk_joint_state_controller
-        schunk_position_controller
+        args="--timeout 300 --namespace schunk_robot/
+        joint_state_controller
+        position_controller
         "
         output="screen" />
 

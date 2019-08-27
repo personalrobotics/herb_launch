@@ -1,9 +1,9 @@
 # Publish all joint states -----------------------------------------------------
-schunk_joint_state_controller:
+joint_state_controller:
   type: joint_state_controller/JointStateController
   publish_rate: 50
 
 # Position Controllers ---------------------------------------------------------
-schunk_position_controller:
+position_controller:
   type: position_command_controller/PositionCommandController
   resource_name: schunk_joints
