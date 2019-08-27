@@ -137,6 +137,51 @@ bimanual_trajectory_controller:
   state_publish_rate: 25
 
 
+move_until_touch_topic_controller:
+  type: rewd_controllers/MoveUntilTouchTopicController
+  forcetorque_wrench_name: /left/ft_wrench
+  forcetorque_tare_name: /left_tare_controller/trigger
+  sensor_force_limit: 50
+  sensor_torque_limit: 5
+  joints:
+    - /left/j1
+    - /left/j2
+    - /left/j3
+    - /left/j4
+    - /left/j5
+    - /left/j6
+    - /left/j7
+    - /right/j1
+    - /right/j2
+    - /right/j3
+    - /right/j4
+    - /right/j5
+    - /right/j6
+    - /right/j7
+  control_type: effort
+  gains:
+    <<: *left_gains
+    <<: *right_gains
+  constraints: # TODO what are these values?
+    goal_time: 0.6
+    stopped_velocity_tolerance: 0.02
+    left/j1:  *joint_traj_constraints
+    left/j2:  *joint_traj_constraints
+    left/j3:  *joint_traj_constraints
+    left/j4:  *joint_traj_constraints
+    left/j5:  *joint_traj_constraints
+    left/j6:  *joint_traj_constraints
+    left/j7:  *joint_traj_constraints
+    right/j1: *joint_traj_constraints
+    right/j2: *joint_traj_constraints
+    right/j3: *joint_traj_constraints
+    right/j4: *joint_traj_constraints
+    right/j5: *joint_traj_constraints
+    right/j6: *joint_traj_constraints
+    right/j7: *joint_traj_constraints
+  stop_trajectory_duration: 0.5
+  state_publish_rate: 25
+
 # Hand controllers -------------------------------------------------------------
 right_hand_controller:
   type: position_command_controller/PositionCommandController

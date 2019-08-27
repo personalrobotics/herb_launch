@@ -22,6 +22,7 @@ buses:
     forcetorque_tare_name: /right/ft_tare
     forcetorque_accel_name: /right/ft_accel
     # The "configuration_path" and "schedule" params are set in the launchfile.
+    hand_torque_stop_duration: 600
   left_arm:
     wam_joint_names:
     - /left/j1
@@ -44,3 +45,4 @@ buses:
     forcetorque_tare_name: /left/ft_tare
     forcetorque_accel_name: /left/ft_accel
     # The "configuration_path" and "schedule" params are set in the launchfile.
+    hand_torque_stop_duration: 600
