@@ -28,9 +28,8 @@ function neck_can_reset {
     cansend can0 50E#01.92
 }
 
-export PYTHONPATH=$PYTHONPATH:/home/herb_admin/tensorflow_models/research:/home/herb_admin/tensorflow_models/research/slim
+#export PYTHONPATH=$PYTHONPATH:/home/herb_admin/tensorflow_models/research:/home/herb_admin/tensorflow_models/research/slim
 
-cd /home/herb_admin/herb2_ws/
 source $(catkin locate)/devel/setup.bash
 
 neck_can_reset
