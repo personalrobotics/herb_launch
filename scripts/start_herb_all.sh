@@ -54,6 +54,7 @@ pr_ros_launcher "talker"        "talker.launch"
 # rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.04
 # rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.01
 # rosrun dynamic_reconfigure dynparam set multisense motor_speed 1.0
+rostopic pub /schunk_robot/position_controller/set_position/goal pr_control_msgs/SetPositionActionGoal 'goal: {command: {name: ["pan", "tilt"], position: [0.0, 30.0]}}' --once
 
 pr_ros_launcher "state_pub"     "state_publisher.launch"
 #launcher        "static_map"    "rosrun tf static_transform_publisher 0 0 0 0 0 0 1 map base_footprint 100"
