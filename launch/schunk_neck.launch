@@ -14,7 +14,7 @@
         "
         output="screen" />
 
-  <!-- TODO relay from /schunk_robot/joint_states to /joint_states -->
+  <!-- Relay from /schunk_robot/joint_states to /joint_states -->
   <node pkg="topic_tools" type="relay" name="relay_schunk" args="/schunk_robot/joint_states /joint_states"/>
 </launch>
 
