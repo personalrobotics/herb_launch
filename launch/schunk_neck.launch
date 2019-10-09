@@ -14,4 +14,8 @@
         "
         output="screen" />
 
+  <!-- TODO relay from /schunk_robot/joint_states to /joint_states -->
+  <node pkg="topic_tools" type="relay" name="relay_schunk" args="/schunk_robot/joint_states /joint_states"/>
 </launch>
+
+<!-- https://github.com/tu-darmstadt-ros-pkg/hector_tracker_gazebo/blob/master/hector_tracker_gazebo_ros_control/launch/default_controllers.launch -->
