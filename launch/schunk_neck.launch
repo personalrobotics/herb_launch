@@ -1,0 +1,21 @@
+<launch>
+  <!-- Load the controllers -->
+  <rosparam command="load" ns="schunk_robot/" file="$(find herb_launch)/config/schunk_controllers.yaml"/>
+
+  <node name="schunk_pw70_ros" pkg="schunk_pw70_ros" type="schunk_robot" ns="schunk_robot/" output="screen"/>
+
+  <!-- TODO timeout? -->
+  <node name="schunk_ros_control_manager"
+        pkg="controller_manager"
+        type="spawner"
+        args="--timeout 300 --namespace schunk_robot/
+        joint_state_controller
+        position_controller
+        "
+        output="screen" />
+
+  <!-- Relay from /schunk_robot/joint_states to /joint_states -->
+  <node pkg="topic_tools" type="relay" name="relay_schunk" args="/schunk_robot/joint_states /joint_states"/>
+</launch>
+
+<!-- https://github.com/tu-darmstadt-ros-pkg/hector_tracker_gazebo/blob/master/hector_tracker_gazebo_ros_control/launch/default_controllers.launch -->

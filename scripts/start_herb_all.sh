@@ -42,7 +42,7 @@ pr_ros_launcher "realsense"     "realsense.launch"
 pr_ros_launcher "multisense"    "multisense.launch"
 #pr_ros_launcher "apriltags"	"apriltags_multisense.launch"
 pr_ros_launcher "can_detector"  "can_detector.launch"
-launcher        "schunk_neck"   "rosrun schunk_neck schunk_neck_node"
+pr_ros_launcher "schunk_neck"   "schunk_neck.launch"
 pr_ros_launcher "talker"        "talker.launch"
 
 # TODO: fix Multisense
@@ -54,13 +54,13 @@ pr_ros_launcher "talker"        "talker.launch"
 # rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.04
 # rosrun dynamic_reconfigure dynparam set multisense led_duty_cycle 0.01
 # rosrun dynamic_reconfigure dynparam set multisense motor_speed 1.0
-rosservice call /schunk_neck/set_state -- 0 30
+rostopic pub /schunk_robot/position_controller/set_position/goal pr_control_msgs/SetPositionActionGoal 'goal: {command: {name: ["pan", "tilt"], position: [0.0, 30.0]}}' --once
 
 pr_ros_launcher "state_pub"     "state_publisher.launch"
 #launcher        "static_map"    "rosrun tf static_transform_publisher 0 0 0 0 0 0 1 map base_footprint 100"
 launcher        "static_map"    "rosrun tf static_transform_publisher 0 0 0.04 0 0 0 1 map base_footprint 100"
 
+# TODO: use prdemo instead of herb_admin
 echo "-- initiating herb0 -------"
 ssh -t herb_admin@herb0 /home/herb_admin/herb0_ws/src/herb_launch/scripts/start_herb0_tmux.sh
 echo "---------------------------"
-
