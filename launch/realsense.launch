@@ -88,4 +88,6 @@
       <arg name="unite_imu_method"         value="$(arg unite_imu_method)"/>
     </include>
   </group>
+
+  <node name="dynamic_reconfigure_load" pkg="dynamic_reconfigure" type="dynparam" args="load /camera/aligned_depth_to_color/image_raw/compressed $(find herb_launch)/config/realsense.yaml" />
 </launch>
