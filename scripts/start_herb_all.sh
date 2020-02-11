@@ -64,3 +64,5 @@ launcher        "static_map"    "rosrun tf static_transform_publisher 0 0 0.04 0
 echo "-- initiating herb0 -------"
 ssh -t herb_admin@herb0 /home/herb_admin/herb0_ws/src/herb_launch/scripts/start_herb0_tmux.sh
 echo "---------------------------"
+
+launcher        "rosbridge"     "roslaunch file_server ros_sharp_communication.launch"
