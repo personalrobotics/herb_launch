@@ -18,13 +18,13 @@ right_joint_group_position_controller:
   control_type: effort
   gains: &right_gains
     # create references to gain data which is reused in other controllers
-    right/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    right/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j1: {p:  800.0, i:  2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j2: {p: 1800.0, i: 10.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j3: {p:  600.0, i:  2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j4: {p:  500.0, i:  0.5, d:  2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    right/j5: {p:  100.0, i:  5.0, d:  0.5, i_clamp_min: -3.0, i_clamp_max: 3.0}
+    right/j6: {p:   90.0, i:  5.0, d:  0.5, i_clamp_min: -1.5, i_clamp_max: 1.5}
+    right/j7: {p:   12.0, i:  0.5, d:  0.1, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
 left_joint_group_position_controller:
   type: rewd_controllers/JointGroupPositionController
@@ -38,13 +38,13 @@ left_joint_group_position_controller:
     - /left/j7
   control_type: effort
   gains: &left_gains
-    left/j1: {p: 900.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j2: {p: 2500.0, i: 5.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j3: {p: 600.0,  i: 2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j4: {p: 500.0,  i: 0.5, d: 2.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j5: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j6: {p: 40.0,   i: 0.5, d: 0.5,  i_clamp_min: -1.0, i_clamp_max: 1.0}
-    left/j7: {p: 12.0,   i: 0.5, d: 0.05, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j1: {p:  800.0, i:  2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j2: {p: 1800.0, i: 10.0, d: 20.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j3: {p:  600.0, i:  2.5, d: 10.0, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j4: {p:  500.0, i:  0.5, d:  2.5, i_clamp_min: -1.0, i_clamp_max: 1.0}
+    left/j5: {p:  100.0, i:  5.0, d:  0.5, i_clamp_min: -3.0, i_clamp_max: 3.0}
+    left/j6: {p:   90.0, i:  5.0, d:  0.5, i_clamp_min: -1.5, i_clamp_max: 1.5}
+    left/j7: {p:   12.0, i:  0.5, d:  0.1, i_clamp_min: -1.0, i_clamp_max: 1.0}
 
 
 # Gravity Compensation Controllers ---------------------------------------------
